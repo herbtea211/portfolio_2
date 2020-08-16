@@ -1,11 +1,8 @@
-<template>
-  <div id="app">
-    <div>
-      aa {{count}}
-    </div>
-    <img src="./assets/logo.png" @click="test(20)">
-    <router-view/>
-  </div>
+<template lang="pug">
+  #app
+    div aa {{count}}
+    img(src="./assets/logo.png" @click="test(20)")
+    router-view
 </template>
 
 <script>
