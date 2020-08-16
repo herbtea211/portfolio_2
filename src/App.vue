@@ -1,13 +1,43 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <div>
+      aa {{count}}
+    </div>
+    <img src="./assets/logo.png" @click="test(20)">
     <router-view/>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-  name: 'App'
+  name: 'App',
+    components: {
+   
+    },
+    data () {
+    return {
+
+    }
+  },
+  computed: {
+    count() {
+      return this.$store.state.count
+    },
+  },
+  mounted () {
+    
+
+  },
+  methods: {
+    test(count) {
+      this.$store.commit('setCountStaus',count)
+    }
+  },
+  watch: {
+
+  }
 }
 </script>
 
@@ -22,5 +52,4 @@ export default {
   text-align: center
   color: #2c3e50
   margin-top: 60px
-  background-color: $bg 
 </style>
