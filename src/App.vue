@@ -1,6 +1,7 @@
 <template lang="pug">
   #app
     div aa {{count}}
+    el-button aa
     img(src="./assets/logo.png" @click="test(20)")
     router-view
 </template>
@@ -15,7 +16,7 @@ export default {
     },
     data () {
     return {
-
+      
     }
   },
   computed: {
