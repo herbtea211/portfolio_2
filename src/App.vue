@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app
+  #app(class="animated fadeIn")
     div aa {{count}}
     el-button aa
     img(src="./assets/logo.png" @click="test(20)")
