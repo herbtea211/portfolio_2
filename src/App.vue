@@ -1,8 +1,5 @@
 <template lang="pug">
   #app(class="animated fadeIn")
-    div aa {{count}}
-    el-button aa
-    img(src="./assets/logo.png" @click="test(20)")
     router-view
 </template>
 
@@ -44,10 +41,12 @@ export default {
 @import './assets/styles/var'
 
 #app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-align: center
-  color: #2c3e50
-  margin-top: 60px
+  min-width: 100vw
+  min-height: 100vh
+  background: linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
+  background: -moz-linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
+  background: -webkit-linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
+  background: -o-linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
+  color: $font-color
+
 </style>
