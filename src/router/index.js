@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import homePage from '@/pages/Home'
 import experiencePage from '@/pages/Experience'
+import workTypeListPage from '@/pages/WorksTypeList'
+import worksPage from '@/pages/works'
+
 
 
 
@@ -18,6 +21,16 @@ export default new Router({
       path: '/experience',
       name: 'experience',
       component: experiencePage
+    },
+    {
+      path: '/workTypeList',
+      name: 'workTypeList',
+      component: workTypeListPage
+    },
+    {
+      path: '/works',
+      name: 'works',
+      component: worksPage
     }
   ]
 })

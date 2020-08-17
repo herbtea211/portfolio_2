@@ -1,13 +1,12 @@
 <template lang="pug">
-  #works
-    h1 works
-    router-view
+  #griphic-01
+    h1 griphic-01
 </template>
 
 <script>
 
 export default {
-  name: 'worksPage',
+  name: 'griphic01',
     components: {
    
     },
@@ -33,6 +32,6 @@ export default {
 
 <style lang="sass">
 
-#works
+#griphic-01
   
 </style>

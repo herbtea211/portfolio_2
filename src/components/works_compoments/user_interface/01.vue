@@ -1,13 +1,12 @@
 <template lang="pug">
-  #works
-    h1 works
-    router-view
+  #UI-01
+    h1 UI-01
 </template>
 
 <script>
 
 export default {
-  name: 'worksPage',
+  name: 'UI01',
     components: {
    
     },
@@ -33,6 +32,6 @@ export default {
 
 <style lang="sass">
 
-#works
+#UI-01
   
 </style>
