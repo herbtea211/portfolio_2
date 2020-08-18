@@ -90,8 +90,7 @@ $rotate_-40: rotate(-40deg)
     background: -webkit-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
     background: -o-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
 
-// 231deg, #c4a658, #c4a658
-
+  
 @keyframes bottomIsActive
   from
     transform: $rotate_0
@@ -136,7 +135,7 @@ $rotate_-40: rotate(-40deg)
     bottom: 100vh
     left: 100vw
 
-@keyframes highLightAnimation
+@keyframes highLightAnimationYellow
   from
     @include highLightAnimation(231deg, #c4a658, #c4b827)
   50%
@@ -144,13 +143,21 @@ $rotate_-40: rotate(-40deg)
   to
     @include highLightAnimation(231deg, #c4a658, #c4b827)
 
-@keyframes highLightAnimation2
+@keyframes highLightAnimationBlue
   from
     @include highLightAnimation(231deg, #002bff, #3c68b7)
   50%
     @include highLightAnimation(0deg, #002bff, #3c68b7)
   to
     @include highLightAnimation(231deg, #002bff, #3c68b7)
+
+@keyframes highLightAnimationRed
+  from
+    @include highLightAnimation(231deg, #ff0000, #ff59a6)
+  50%
+    @include highLightAnimation(0deg, #ff0000, #ff59a6)
+  to
+    @include highLightAnimation(231deg, #ff0000, #ff59a6)
 
 #sidebar-component
   position: fixed
@@ -224,18 +231,17 @@ $rotate_-40: rotate(-40deg)
               background-color: blue
               border-radius: 1000px
               margin-top: 10px
-              @include highLightAnimation(231deg, #c4a658, #c4b827)
-              animation: highLightAnimation 3s
               animation-direction: alternate
               animation-iteration-count: infinite
+        &:nth-child(1)
+          .high-light
+            animation: highLightAnimationYellow 3s
         &:nth-child(2)
-          .btn-content-box
-            .btn-text
-            .high-light
-              @include highLightAnimation(231deg, #002bff, #3c68b7)
-              animation: highLightAnimation2 2s
-              animation-direction: alternate
-              animation-iteration-count: infinite
+          .high-light
+            animation: highLightAnimationBlue 5s
+        &:nth-child(3)
+          .high-light
+            animation: highLightAnimationRed 3s
       .type-btn
         .second
           width: 100%
