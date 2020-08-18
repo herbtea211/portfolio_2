@@ -1,6 +1,9 @@
 <template lang="pug">
   #experience
-    h1 experience
+    .buttom-layer
+      .secand-layer
+        .three-layer
+          span aaaaaaaaaaaaaaaaa
     sidebarCompoment
 </template>
 
@@ -87,7 +90,34 @@ export default {
 
 <style lang="sass">
 
+@import '../assets/styles/var'
+
+$shareRadius: 10px
+$shareSize: 10vw
+
 #experience
   margin: 10vh 10vw
-  
+  .buttom-layer
+    display: inline-block
+    border-radius: 10px
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+    background: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+    background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+    background: -o-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+    box-shadow: 13px 14px 23px #e6e6e6
+    -webkit-box-shadow: 13px 14px 23px #e6e6e6
+    -moz-box-shadow: 13px 14px 23px #e6e6e6
+    .secand-layer
+      display: inline-block
+      border-radius: 10px
+      padding: 2px
+      background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+      background: -moz-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+      background: -webkit-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+      background: -o-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+      .three-layer
+        background-color: $BG-color
+        display: inline-block
+        border-radius: 10px
+        padding: 3vw
 </style>
