@@ -7,6 +7,7 @@
             v-for="(item, index) in btnGroup"
             :key="index"
             class="animated fadeInRight"
+            @click="toNextPage"
             )
           .type-btn.second
             .btn-content-box
@@ -35,9 +36,9 @@ export default {
       isActive: false,
       showMenuIcon: false,
       btnGroup: [
-        'a',
-        'b',
-        'c'
+        'UI DESIGN',
+        'GRIPHIC',
+        'EXPERIENCE'
       ]
     }
   },
@@ -51,11 +52,8 @@ export default {
     clickSideBarIcon() {
       this.isActive = !this.isActive
     },
-    goPage(pathName) {
-        let payload = {
-        path: pathName,
-        isShowMenuIcon: true
-      }
+    toNextPage() {
+      console.log('aa')
     }
 
   },
@@ -225,14 +223,24 @@ $rotate_-40: rotate(-40deg)
           .btn-content-box
             width: 80%
             .btn-text
+              font-size: 16px
+              letter-spacing: 2px
+              transition: letter-spacing $direction
+              -webkit-transition: letter-spacing $direction
+              -moz-transition: letter-spacing $direction
+              -o-transition: letter-spacing $direction
             .high-light
-              width: 100%
+              width: 20%
               height: 2px
               background-color: blue
               border-radius: 1000px
               margin-top: 10px
               animation-direction: alternate
               animation-iteration-count: infinite
+              transition: width $direction
+              -webkit-transition: width $direction
+              -moz-transition: width $direction
+              -o-transition: width $direction
         &:nth-child(1)
           .high-light
             animation: highLightAnimationYellow 3s
@@ -245,6 +253,14 @@ $rotate_-40: rotate(-40deg)
       .type-btn
         .second
           width: 100%
+      .type-btn.first
+        &:hover
+          .second
+            .btn-content-box
+              .btn-text
+                letter-spacing: 10px
+              .high-light
+                width: 100%
   .sideBar-content.active
     animation: sideBarContentActive $direction
     bottom: 0
@@ -254,6 +270,19 @@ $rotate_-40: rotate(-40deg)
     bottom: 100vh
     left: 100vw
 
-// @media screen and (max-width: 992px)
-// @media (orientation: landscape)
+@media screen and (max-width: 1400px)
+  #sidebar-component
+    .sideBar-content
+      .btn-box
+        .first
+          .second
+            .btn-content-box 
+              width: 60%
+              .btn-text
+                text-align: center
+              .high-light
+                width: 100%
+
+// @media (orientation: portrait) 直視 , landscape 橫式
+
 </style>
