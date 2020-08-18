@@ -8,7 +8,10 @@
             :key="index"
             class="animated fadeInRight"
             )
-          .type-btn.second {{item}}
+          .type-btn.second
+            .btn-content-box
+              .btn-text {{item}}
+              .high-light
     .sideBar-icon(
       @click="clickSideBarIcon"
       v-show="showMenuIcon"
@@ -32,9 +35,9 @@ export default {
       isActive: false,
       showMenuIcon: false,
       btnGroup: [
-        'griphic',
-        'UI',
-        'experience'
+        'a',
+        'b',
+        'c'
       ]
     }
   },
@@ -125,6 +128,24 @@ $rotate_-40: rotate(-40deg)
     bottom: 100vh
     left: 100vw
 
+@keyframes highLightAnimation
+  from
+    background: linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -moz-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -webkit-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -o-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+  50%
+    background: linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -moz-linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -webkit-linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -o-linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+  to
+    background: linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -moz-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -webkit-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    background: -o-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+
+
 #sidebar-component
   position: fixed
   top: 0px
@@ -185,6 +206,25 @@ $rotate_-40: rotate(-40deg)
           -webkit-box-shadow: inset -10px -15px 7px -11px #FFFFFF
           -moz-box-shadow: inset -10px -15px 7px -11px #FFFFFF
           -o-box-shadow: inset -10px -15px 7px -11px #FFFFFF
+          display: flex
+          align-items: center
+          justify-content: center
+          .btn-content-box
+            width: 80%
+            .btn-text
+            .high-light
+              width: 100%
+              height: 2px
+              background-color: blue
+              border-radius: 1000px
+              margin-top: 10px
+              background: linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+              background: -moz-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+              background: -webkit-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+              background: -o-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+              animation: highLightAnimation 3s
+              animation-direction: alternate
+              animation-iteration-count: infinite
       .type-btn
         .second
           width: 100%
