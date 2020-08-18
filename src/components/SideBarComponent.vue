@@ -1,11 +1,12 @@
 <template lang="pug">
   #sidebar-component(class="animated fadeIn")
     .sideBar-content(ref="el_sideBar_content")
-      sloganComponent(:sidebarIsActive="isActive")
+      sloganComponent(:sidebarIsActive="isActive" class="animated fadeInRight")
       .btn-box
         .type-btn.first(
             v-for="(item, index) in btnGroup"
             :key="index"
+            class="animated fadeInRight"
             )
           .type-btn.second {{item}}
     .sideBar-icon(@click="clickSideBarIcon")
@@ -57,15 +58,13 @@ export default {
     }
   },
   mounted() {
-    this.openSideBar(true)
-
+    this.isActive = true
   },
   computed: {
   },
   methods: {
     clickSideBarIcon() {
       this.isActive = !this.isActive
-      this.openSideBar(this.isActive)
     },
     openSideBar(isActive) {
       if(isActive) {
@@ -78,10 +77,6 @@ export default {
         this.$refs.el_sideBar_content.classList.remove('notActive')
         this.$refs.el_sideBar_content.classList.add('active')
 
-        setTimeout(() => {
-          this.itemsFadeIn = true
-        }, 150)
-
       } else {
         this.$refs.el_line_bottom.classList.remove('active')
         this.$refs.el_line_bottom.classList.add('notActive')
@@ -91,8 +86,6 @@ export default {
 
         this.$refs.el_sideBar_content.classList.remove('active')
         this.$refs.el_sideBar_content.classList.add('notActive')
-
-        this.itemsFadeIn = false
        
       }
 
@@ -106,7 +99,9 @@ export default {
 
   },
    watch: {
-
+     isActive(current, old) {
+       this.openSideBar(current)
+     }
     }
 }
 </script>
