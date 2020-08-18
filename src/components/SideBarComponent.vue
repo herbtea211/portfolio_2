@@ -157,13 +157,13 @@ $rotate_-40: rotate(-40deg)
       animation: bottomNotActive $direction
       transform: $rotate_0
   .sideBar-content
+    overflow: scroll
     position: fixed
     top: 0px
     right: 0px
     bottom: 100vh
     left: 100vw
     background-color: $BG-color
-    overflow: hidden
     height: 100vh
     .btn-box
       margin-top: 15vh
@@ -199,5 +199,4 @@ $rotate_-40: rotate(-40deg)
 
 // @media screen and (max-width: 992px)
 // @media (orientation: landscape)
-
 </style>
