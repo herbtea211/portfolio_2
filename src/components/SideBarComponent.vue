@@ -3,10 +3,11 @@
     .sideBar-content(ref="el_sideBar_content")
       sloganComponent(:sidebarIsActive="isActive")
       .btn-box
-        .type-btn(
-          v-for="(item, index) in btnGroup"
-          :key="index"
-          ) {{item}}
+        .type-btn.first(
+            v-for="(item, index) in btnGroup"
+            :key="index"
+            )
+          .type-btn.second {{item}}
     .sideBar-icon(@click="clickSideBarIcon")
       .line-top(ref="el_line_top")
       .line-bottom(ref="el_line_bottom")
@@ -208,29 +209,32 @@ $rotate_-40: rotate(-40deg)
     right: 0px
     bottom: 100vh
     left: 100vw
-    background-color: #fdfdfd
+    background-color: #f6f6ff
     overflow: hidden
     height: 100vh
     .btn-box
       margin-top: 15vh
       .type-btn
-        margin: 0 auto 5vh
+        margin: 0 auto
         height: 100px
         width: 50%
-        background-color: #ffffff
         border-radius: 1000px
-        border: 3px #000 solid
-      // display: flex
-      // align-items: center
-      // justify-content: center
-      // box-shadow: inset 2px -8px 50px -48px #000000
-      // -webkit-box-shadow: inset 2px -8px 50px -48px #000000
-      // -moz-box-shadow: inset 2px -8px 50px -48px #000000
-      // -o-box-shadow: inset 2px -8px 50px -48px #000000
-      // background: radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1)30%, rgba(197, 202, 205, 1)100%)
-      // background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1)30%, rgba(197, 202, 205, 1)100%)
-      // background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1)30%, rgba(197, 202, 205, 1)100%)
-      // background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1)30%, rgba(197, 202, 205, 1)100%)
+      .first
+        margin-bottom: 5vh
+        box-sizing: border-box
+        border: 1px #ffffff solid
+        box-shadow: inset 12px 20px 7px -18px #e0e0e0
+        -webkit-box-shadow: inset 12px 20px 7px -18px #e0e0e0
+        -moz-box-shadow: inset 12px 20px 7px -18px #e0e0e0
+        -o-box-shadow: inset 12px 20px 7px -18px #e0e0e0
+        .second
+          box-shadow: inset -10px -15px 7px -11px #FFFFFF
+          -webkit-box-shadow: inset -10px -15px 7px -11px #FFFFFF
+          -moz-box-shadow: inset -10px -15px 7px -11px #FFFFFF
+          -o-box-shadow: inset -10px -15px 7px -11px #FFFFFF
+      .type-btn
+        .second
+          width: 100%
   .sideBar-content.active
     animation: sideBarContentActive $direction
     bottom: 0

@@ -43,10 +43,7 @@ export default {
 #app
   min-width: 100vw
   min-height: 100vh
-  background: linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
-  background: -moz-linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
-  background: -webkit-linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
-  background: -o-linear-gradient(150deg, rgba(204, 204, 204, 1)0%, rgba(255, 255, 255, 1)100%)
+  background-color: $BG-color
   color: $font-color
 
 </style>
