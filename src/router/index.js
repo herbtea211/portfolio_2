@@ -23,7 +23,7 @@ export default new Router({
       component: experiencePage
     },
     {
-      path: '/workTypeList',
+      path: '/workTypeList/:from',
       name: 'workTypeList',
       component: workTypeListPage
     },

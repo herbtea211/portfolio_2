@@ -7,11 +7,11 @@
             v-for="(item, index) in btnGroup"
             :key="index"
             class="animated fadeInRight"
-            @click="toNextPage"
+            @click="toNextPage(item.path)"
             )
           .type-btn.second
             .btn-content-box
-              .btn-text {{item}}
+              .btn-text {{item.p}}
               .high-light
     .sideBar-icon(
       @click="clickSideBarIcon"
@@ -36,9 +36,18 @@ export default {
       isActive: false,
       showMenuIcon: false,
       btnGroup: [
-        'UI DESIGN',
-        'GRIPHIC',
-        'EXPERIENCE'
+        {
+          p: 'UI DESIGN',
+          path: '/workTypeList/ui'
+        },
+        {
+          p: 'GRIPHIC',
+          path: '/workTypeList/griphic'
+        },
+        {
+          p: 'EXPERIENCE',
+          path: '/experience'
+        }
       ]
     }
   },
@@ -52,8 +61,8 @@ export default {
     clickSideBarIcon() {
       this.isActive = !this.isActive
     },
-    toNextPage() {
-      console.log('aa')
+    toNextPage(path) {
+      this.$router.push(path)
     }
 
   },
