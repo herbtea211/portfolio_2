@@ -13,6 +13,7 @@
             .btn-content-box
               .btn-text {{item.p}}
               .high-light
+                .high-light-point
     .sideBar-icon(
       @click="clickSideBarIcon"
       v-show="showMenuIcon"
@@ -97,6 +98,15 @@ $rotate_-40: rotate(-40deg)
     background: -webkit-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
     background: -o-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
 
+@mixin highLightStyle($bgColor, $pointColor, $direction)
+  .high-light
+    background-color: $bgColor
+    .high-light-point
+      background: radial-gradient(center, ellipse cover, $pointColor 32%, $bgColor 65%)
+      background: -moz-radial-gradient(center, ellipse cover, $pointColor 32%, $bgColor 65%)
+      background: -webkit-radial-gradient(center, ellipse cover, $pointColor 32%, $bgColor 65%)
+      background: -o-radial-gradient(center, ellipse cover, $pointColor 32%, $bgColor 65%)
+      animation: pointMoveAnimation $direction
   
 @keyframes bottomIsActive
   from
@@ -142,29 +152,11 @@ $rotate_-40: rotate(-40deg)
     bottom: 100vh
     left: 100vw
 
-@keyframes highLightAnimationYellow
+@keyframes pointMoveAnimation
   from
-    @include highLightAnimation(231deg, #c4a658, #c4b827)
-  50%
-    @include highLightAnimation(0deg, #c4a658, #c4b827)
+    left: -10%
   to
-    @include highLightAnimation(231deg, #c4a658, #c4b827)
-
-@keyframes highLightAnimationBlue
-  from
-    @include highLightAnimation(231deg, #002bff, #3c68b7)
-  50%
-    @include highLightAnimation(0deg, #002bff, #3c68b7)
-  to
-    @include highLightAnimation(231deg, #002bff, #3c68b7)
-
-@keyframes highLightAnimationRed
-  from
-    @include highLightAnimation(231deg, #ff0000, #ff59a6)
-  50%
-    @include highLightAnimation(0deg, #ff0000, #ff59a6)
-  to
-    @include highLightAnimation(231deg, #ff0000, #ff59a6)
+    left: 90%
 
 #sidebar-component
   position: fixed
@@ -241,24 +233,29 @@ $rotate_-40: rotate(-40deg)
             .high-light
               width: 20%
               height: 2px
-              background-color: blue
               border-radius: 1000px
               margin-top: 10px
-              animation-direction: alternate
-              animation-iteration-count: infinite
+              overflow: hidden
+              position: relative
               transition: width $direction
               -webkit-transition: width $direction
               -moz-transition: width $direction
               -o-transition: width $direction
+              .high-light-point
+                border-radius: 1000px
+                height: 100%
+                width: 100px
+                position: absolute
+                top: 0
+                left: -10%
+                animation-direction: alternate
+                animation-iteration-count: infinite
         &:nth-child(1)
-          .high-light
-            animation: highLightAnimationYellow 3s
+          @include highLightStyle(#c7ae12, #f9e987, 2s)
         &:nth-child(2)
-          .high-light
-            animation: highLightAnimationBlue 5s
+          @include highLightStyle(#33b2f7, #aee3ff, 3s)
         &:nth-child(3)
-          .high-light
-            animation: highLightAnimationRed 3s
+          @include highLightStyle(#f80000, #ffc5fb, 3.5s)
       .type-btn
         .second
           width: 100%
