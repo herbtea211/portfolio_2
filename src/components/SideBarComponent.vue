@@ -110,7 +110,9 @@ export default {
     }
 }
 </script>
-<style lang="sass" scoped>
+<style lang="sass">
+
+@import '../assets/styles/var.sass'
 
 $direction: 0.5s
 $initTop: 0px
@@ -209,7 +211,7 @@ $rotate_-40: rotate(-40deg)
     right: 0px
     bottom: 100vh
     left: 100vw
-    background-color: #f6f6ff
+    background-color: $BG-color
     overflow: hidden
     height: 100vh
     .btn-box
@@ -246,4 +248,5 @@ $rotate_-40: rotate(-40deg)
 
 // @media screen and (max-width: 992px)
 // @media (orientation: landscape)
+
 </style>
