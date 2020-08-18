@@ -1,5 +1,5 @@
 <template lang="pug">
-    #sloganComponent(class="animated fadeIn")
+    #sloganComponent(class="animated fadeInRight" v-if="sidebarIsActive")
       h5 {{slogan.content}}
       h5 {{slogan.contentTW}}
       h6 {{slogan.author}}-

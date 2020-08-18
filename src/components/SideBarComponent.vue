@@ -1,17 +1,20 @@
 <template lang="pug">
   #sidebar-component(class="animated fadeIn")
-    .sideBar-content(ref="el_sideBar_content")
-      sloganComponent(:sidebarIsActive="isActive" class="animated fadeInRight")
-      .btn-box
+    .sideBar-content(:class="[ isActive ? 'active' : 'notActive' ]")
+      sloganComponent(:sidebarIsActive="isActive")
+      .btn-box(v-if="isActive")
         .type-btn.first(
             v-for="(item, index) in btnGroup"
             :key="index"
             class="animated fadeInRight"
             )
           .type-btn.second {{item}}
-    .sideBar-icon(@click="clickSideBarIcon")
-      .line-top(ref="el_line_top")
-      .line-bottom(ref="el_line_bottom")
+    .sideBar-icon(
+      @click="clickSideBarIcon"
+      v-show="showMenuIcon"
+      )
+      .line-top(:class="[ isActive ? 'active' : 'notActive' ]")
+      .line-bottom(:class="[ isActive ? 'active' : 'notActive' ]")
 </template>
 
 <script>
@@ -27,29 +30,7 @@ export default {
   data () {
     return {
       isActive: false,
-      itemsFadeIn: false,
-      sideBarItems: [
-        {
-          name: 'HOME',
-          src: '/'
-        },
-        {
-          name: 'UI-DESIGN',
-          src: '/meunItems/ui'
-        },
-        {
-          name: 'GRAPHIC',
-          src: '/meunItems/graphic'
-        },
-        {
-          name: 'WEB-DESIGN',
-          src: '/meunItems/web'
-        },
-        {
-          name: 'EXPERIENCE',
-          src: '/experience'
-        }
-      ],
+      showMenuIcon: false,
       btnGroup: [
         'griphic',
         'UI',
@@ -58,37 +39,14 @@ export default {
     }
   },
   mounted() {
-    this.isActive = true
+    this.showMenuIcon = !(this.$route.path === '/')
+    this.isActive = this.$route.path === '/'
   },
   computed: {
   },
   methods: {
     clickSideBarIcon() {
       this.isActive = !this.isActive
-    },
-    openSideBar(isActive) {
-      if(isActive) {
-        this.$refs.el_line_bottom.classList.remove('notActive')
-        this.$refs.el_line_bottom.classList.add('active')
-
-        this.$refs.el_line_top.classList.remove('notActive')
-        this.$refs.el_line_top.classList.add('active')
-
-        this.$refs.el_sideBar_content.classList.remove('notActive')
-        this.$refs.el_sideBar_content.classList.add('active')
-
-      } else {
-        this.$refs.el_line_bottom.classList.remove('active')
-        this.$refs.el_line_bottom.classList.add('notActive')
-
-        this.$refs.el_line_top.classList.remove('active')
-        this.$refs.el_line_top.classList.add('notActive')
-
-        this.$refs.el_sideBar_content.classList.remove('active')
-        this.$refs.el_sideBar_content.classList.add('notActive')
-       
-      }
-
     },
     goPage(pathName) {
         let payload = {
@@ -99,9 +57,7 @@ export default {
 
   },
    watch: {
-     isActive(current, old) {
-       this.openSideBar(current)
-     }
+     
     }
 }
 </script>
