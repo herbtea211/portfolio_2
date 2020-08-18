@@ -144,6 +144,14 @@ $rotate_-40: rotate(-40deg)
   to
     @include highLightAnimation(231deg, #c4a658, #c4b827)
 
+@keyframes highLightAnimation2
+  from
+    @include highLightAnimation(231deg, #002bff, #3c68b7)
+  50%
+    @include highLightAnimation(0deg, #002bff, #3c68b7)
+  to
+    @include highLightAnimation(231deg, #002bff, #3c68b7)
+
 #sidebar-component
   position: fixed
   top: 0px
@@ -218,6 +226,14 @@ $rotate_-40: rotate(-40deg)
               margin-top: 10px
               @include highLightAnimation(231deg, #c4a658, #c4b827)
               animation: highLightAnimation 3s
+              animation-direction: alternate
+              animation-iteration-count: infinite
+        &:nth-child(2)
+          .btn-content-box
+            .btn-text
+            .high-light
+              @include highLightAnimation(231deg, #002bff, #3c68b7)
+              animation: highLightAnimation2 2s
               animation-direction: alternate
               animation-iteration-count: infinite
       .type-btn
