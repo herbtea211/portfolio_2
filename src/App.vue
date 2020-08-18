@@ -41,8 +41,6 @@ export default {
 @import './assets/styles/var'
 
 #app
-  min-width: 100vw
-  min-height: 100vh
   background-color: $BG-color
   color: $font-color
 

@@ -85,7 +85,7 @@ $rotate_-40: rotate(-40deg)
 @mixin noActiveStyle($top)
   width: 100%
   height: 3px
-  background-color: #435873
+  background-color: #b3c0d2
   border-radius: 100px
   position: absolute
   top: $top
