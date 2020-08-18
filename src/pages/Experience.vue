@@ -1,20 +1,20 @@
 <template lang="pug">
   #experience
-    .buttom-layer
-      .secand-layer
-        .three-layer
-          span aaaaaaaaaaaaaaaaa
+    floatLabel(paddingWidth="2vw")
+      span aaaaaa
     sidebarCompoment
 </template>
 
 <script>
 
 import sidebarCompoment from '../components/SideBarComponent'
+import floatLabel from '../components/FloatLabel'
 
 export default {
   name: 'experiencePage',
     components: {
-      sidebarCompoment
+      sidebarCompoment,
+      floatLabel
     },
     data () {
     return {
@@ -97,27 +97,27 @@ $shareSize: 10vw
 
 #experience
   margin: 10vh 10vw
-  .buttom-layer
-    display: inline-block
-    border-radius: 10px
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
-    background: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
-    background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
-    background: -o-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
-    box-shadow: 13px 14px 23px #e6e6e6
-    -webkit-box-shadow: 13px 14px 23px #e6e6e6
-    -moz-box-shadow: 13px 14px 23px #e6e6e6
-    .secand-layer
-      display: inline-block
-      border-radius: 10px
-      padding: 2px
-      background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
-      background: -moz-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
-      background: -webkit-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
-      background: -o-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
-      .three-layer
-        background-color: $BG-color
-        display: inline-block
-        border-radius: 10px
-        padding: 3vw
+  // .buttom-layer
+  //   display: inline-block
+  //   border-radius: 10px
+  //   background: linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+  //   background: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+  //   background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+  //   background: -o-linear-gradient(135deg, rgba(255, 255, 255, 0)41%, rgba(255, 255, 255, 1)99%)
+  //   box-shadow: 13px 14px 23px #e6e6e6
+  //   -webkit-box-shadow: 13px 14px 23px #e6e6e6
+  //   -moz-box-shadow: 13px 14px 23px #e6e6e6
+  //   .secand-layer
+  //     display: inline-block
+  //     border-radius: 10px
+  //     padding: 2px
+  //     background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+  //     background: -moz-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+  //     background: -webkit-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+  //     background: -o-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+  //     .three-layer
+  //       background-color: $BG-color
+  //       display: inline-block
+  //       border-radius: 10px
+  //       padding: 3vw
 </style>
