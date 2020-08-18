@@ -84,6 +84,14 @@ $rotate_-40: rotate(-40deg)
   top: $top
   right: 0
 
+@mixin highLightAnimation($deg, $firstColor, $secondColor)
+    background: linear-gradient($deg, $firstColor 45%, $secondColor 54%)
+    background: -moz-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
+    background: -webkit-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
+    background: -o-linear-gradient($deg, $firstColor 45%, $secondColor 54%)
+
+// 231deg, #c4a658, #c4a658
+
 @keyframes bottomIsActive
   from
     transform: $rotate_0
@@ -130,21 +138,11 @@ $rotate_-40: rotate(-40deg)
 
 @keyframes highLightAnimation
   from
-    background: linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -moz-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -webkit-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -o-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    @include highLightAnimation(231deg, #c4a658, #c4b827)
   50%
-    background: linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -moz-linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -webkit-linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -o-linear-gradient(0deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+    @include highLightAnimation(0deg, #c4a658, #c4b827)
   to
-    background: linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -moz-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -webkit-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-    background: -o-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-
+    @include highLightAnimation(231deg, #c4a658, #c4b827)
 
 #sidebar-component
   position: fixed
@@ -218,10 +216,7 @@ $rotate_-40: rotate(-40deg)
               background-color: blue
               border-radius: 1000px
               margin-top: 10px
-              background: linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-              background: -moz-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-              background: -webkit-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
-              background: -o-linear-gradient(231deg, rgba(196, 166, 88, 1)45%, rgba(196, 184, 39, 1)54%)
+              @include highLightAnimation(231deg, #c4a658, #c4b827)
               animation: highLightAnimation 3s
               animation-direction: alternate
               animation-iteration-count: infinite
