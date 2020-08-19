@@ -1,8 +1,6 @@
 <template lang="pug">
   #work-type-list
-    h1 workTypeList
-    .test
-      h1 500
+    .title-box 繁忙的城市,每個人都在自己的路上和別人相遇著
     sidebarCompoment
 </template>
 
@@ -36,21 +34,40 @@ export default {
 
 <style lang="sass">
 
+@import '../assets/styles/var'
+
+$finallyBGColor: hsl(0, 0, 50)
+
 @keyframes testAnimation
   from
-    background-color: hsl(0, 0, 0)
+    background-color: $BG-colorHSL
+  30%
+    background-color: $BG-colorHSL
+  50%
+    background-color: hsl(359, 100, 50)
   to
-    background-color: hsl(220, 20, 60)
+    background-color: $finallyBGColor
 
 #work-type-list
-  .test
-    width: 500px
-    height: 500px
-    background-color: hsl(0, 0, 0)
+  .title-box
+    width: 50%
+    margin: 10vh auto 10vh
+    letter-spacing: 5px
+    font-weight: lighter
+    background-color: $finallyBGColor
     -webkit-background-clip: text
     background-clip: text
     color: transparent
     animation: testAnimation 5s
-    animation-iteration-count: infinite
+    text-align: center
+    font-size: 18px
+
+@media screen and (max-width: 400px)
+  @media (orientation: portrait) // 直視 , landscape 橫式
+    #work-type-list
+      .title-box
+        width: 90%
+        font-size: 14px
+        margin-top: 15vh
   
 </style>

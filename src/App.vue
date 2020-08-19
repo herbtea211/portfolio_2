@@ -43,5 +43,6 @@ export default {
 #app
   background-color: $BG-color
   color: $font-color
+  font-weight: lighter
 
 </style>
