@@ -1,10 +1,10 @@
 <template lang="pug">
     .outside-layer(
       ref="node_outside_layer"
-      @mouseover="isHover(true)"
-      @mouseout="isHover(false)"
       )
-        .inside-layer(ref="node_inside_layer")
+        .inside-layer(
+          ref="node_inside_layer"
+          )
             slot
 </template>
 
@@ -31,16 +31,9 @@ export default {
     this.$refs.node_inside_layer.style.height = `${this.imgSize.h + this.imgSize.p}px`
     this.$refs.node_outside_layer.style.width = `${this.imgSize.w + this.imgSize.p + 2}px`
     this.$refs.node_outside_layer.style.height = `${this.imgSize.h + this.imgSize.p + 2}px`
-
-    // this.$refs.node_three_layer.style.paddingTop = this.paddingWidth
-    // this.$refs.node_three_layer.style.paddingRight = this.paddingWidth
-    // this.$refs.node_three_layer.style.paddingLeft = this.paddingWidth
-    // this.$refs.node_three_layer.style.paddingBottom = '12px'
   },
   methods: {
-    isHover(isHover) {
-      console.log('isHover', isHover)
-    }
+    
   },
   watch: {
 
