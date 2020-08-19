@@ -95,6 +95,18 @@ export default {
 
 $finallyBGColor: hsl(0, 0, 50)
 
+@keyframes imgAnimation
+  from
+    -moz-transform: rotate(0deg)
+    -webkit-transform: rotate(0deg)
+    -o-transform: rotate(0deg)
+    -ms-transform: rotate(0deg)
+  to
+    -moz-transform: rotate(360deg)
+    -webkit-transform: rotate(360deg)
+    -o-transform: rotate(360deg)
+    -ms-transform: rotate(360deg)
+
 @keyframes testAnimation
   from
     background-color: $BG-colorHSL
@@ -128,6 +140,7 @@ $finallyBGColor: hsl(0, 0, 50)
       justify-content: center
       align-items: center
       img
+        animation: imgAnimation 5s
       h3
         position: absolute
         bottom: 0px
