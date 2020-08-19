@@ -12,7 +12,8 @@ export default {
     components: {
     },
     props: [
-        'paddingWidth'
+        'paddingWidth',
+        'imgSize'
     ],
     data () {
     return {
@@ -26,7 +27,7 @@ export default {
     this.$refs.node_three_layer.style.paddingTop = this.paddingWidth
     this.$refs.node_three_layer.style.paddingRight = this.paddingWidth
     this.$refs.node_three_layer.style.paddingLeft = this.paddingWidth
-    this.$refs.node_three_layer.style.paddingBottom = '0vw'
+    this.$refs.node_three_layer.style.paddingBottom = '12px'
   },
   methods: {
 
@@ -44,6 +45,7 @@ export default {
 $shareRadius: 1000px
 
 .outside-layer
+    position: absolute
     display: inline-block
     border-radius: $shareRadius
     padding: 2px
