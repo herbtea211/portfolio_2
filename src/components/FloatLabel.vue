@@ -1,5 +1,9 @@
 <template lang="pug">
-    .outside-layer(ref="node_outside_layer")
+    .outside-layer(
+      ref="node_outside_layer"
+      @mouseover="isHover(true)"
+      @mouseout="isHover(false)"
+      )
         .inside-layer(ref="node_inside_layer")
             slot
 </template>
@@ -34,7 +38,9 @@ export default {
     // this.$refs.node_three_layer.style.paddingBottom = '12px'
   },
   methods: {
-
+    isHover(isHover) {
+      console.log('isHover', isHover)
+    }
   },
   watch: {
 
@@ -58,15 +64,28 @@ $shareRadius: 1000px
     background: -moz-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
     background: -webkit-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
     background: -o-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
+    -moz-transform: scale(1, 1)
+    -webkit-transform: scale(1, 1)
+    -o-transform: scale(1, 1)
+    -ms-transform: scale(1, 1)
+    -moz-transition: transform 0.5s
+    -webkit-transition: transform 0.5s
+    -o-transition: transform 0.5s
+    -ms-transition: transform 0.5s
+    // transition
     .inside-layer
         border-radius: $shareRadius
         background-color: $BG-color
         display: flex
         justify-content: center
         align-items: center
-    // &:hover
-    //     box-shadow: 5px 5px 5px 1px #e3e3e3
-    //     -webkit-box-shadow: 5px 5px 5px 1px #e3e3e3
-    //     -moz-box-shadow: 5px 5px 5px 1px #e3e3e3
-    //     -o-box-shadow: 5px 5px 5px 1px #e3e3e3
+    &:hover
+      box-shadow: 5px 5px 5px 1px #e3e3e3
+      -webkit-box-shadow: 5px 5px 5px 1px #e3e3e3
+      -moz-box-shadow: 5px 5px 5px 1px #e3e3e3
+      -o-box-shadow: 5px 5px 5px 1px #e3e3e3
+      -moz-transform: scale(1.2, 1.2)
+      -webkit-transform: scale(1.2, 1.2)
+      -o-transform: scale(1.2, 1.2)
+      -ms-transform: scale(1.2, 1.2)
 </style>
