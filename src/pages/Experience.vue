@@ -1,20 +1,20 @@
 <template lang="pug">
   #experience
-    floatLabel(paddingWidth="2vw")
-      span aaaaaa
+    //- floatLabel(paddingWidth="2vw")
+    //-   span aaaaaa
     sidebarCompoment
 </template>
 
 <script>
 
 import sidebarCompoment from '../components/SideBarComponent'
-import floatLabel from '../components/FloatLabel'
+// import floatLabel from '../components/FloatLabel'
 
 export default {
   name: 'experiencePage',
     components: {
       sidebarCompoment,
-      floatLabel
+      // floatLabel
     },
     data () {
     return {
