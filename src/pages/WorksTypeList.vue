@@ -9,7 +9,7 @@
         v-for="(item, index) in list"
         :key="index"
         )
-        floatLabel(paddingWidth="15px")
+        floatLabel(:imgSize="contentSize")
           img(
             :src="require(`../assets/images/works_list_page_icon/griphic/${item.src}.png`)"
             ref="el_list_img"
@@ -123,33 +123,16 @@ $finallyBGColor: hsl(0, 0, 50)
     .el-col
       margin-bottom: 10vh
       height: 200px
-      // text-align: center
       position: relative
       display: flex
       justify-content: center
       align-items: center
-      flex-flow: column nowrap
       img
-        // width: 100px
       h3
-        margin-top: 10px
         position: absolute
         bottom: 0px
-
-// @media screen and (max-width: 1400px)
-//   @media (orientation: portrait)
-//     #work-type-list
-//       .title-box
-//       .el-row
-//         .el-col
-//           height: 14vh
-
-//   @media (orientation: landscape)
-//     #work-type-list
-//       .title-box
-//       .el-row
-//         .el-col
-//           height: 23vh
+        width: 100%
+        text-align: center
 
 @media screen and (max-width: 450px)
   @media (orientation: portrait) // 直視 , landscape 橫式
@@ -157,11 +140,10 @@ $finallyBGColor: hsl(0, 0, 50)
       .title-box
         width: 50%
         font-size: 14px
-        margin-top: 15vh
+        margin: 10vh auto 10vh
       .el-row
+        margin: 0 10vw
         .el-col
-          height: 18vh
-          img
-            width: 20vw
+          margin-bottom: 0vh
   
 </style>

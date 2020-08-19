@@ -1,6 +1,6 @@
 <template lang="pug">
-    .outside-layer
-        .inside-layer(ref="node_three_layer")
+    .outside-layer(ref="node_outside_layer")
+        .inside-layer(ref="node_inside_layer")
             slot
 </template>
 
@@ -12,7 +12,6 @@ export default {
     components: {
     },
     props: [
-        'paddingWidth',
         'imgSize'
     ],
     data () {
@@ -24,10 +23,15 @@ export default {
     
   },
   mounted () {
-    this.$refs.node_three_layer.style.paddingTop = this.paddingWidth
-    this.$refs.node_three_layer.style.paddingRight = this.paddingWidth
-    this.$refs.node_three_layer.style.paddingLeft = this.paddingWidth
-    this.$refs.node_three_layer.style.paddingBottom = '12px'
+    this.$refs.node_inside_layer.style.width = `${this.imgSize.w + this.imgSize.p}px`
+    this.$refs.node_inside_layer.style.height = `${this.imgSize.h + this.imgSize.p}px`
+    this.$refs.node_outside_layer.style.width = `${this.imgSize.w + this.imgSize.p + 2}px`
+    this.$refs.node_outside_layer.style.height = `${this.imgSize.h + this.imgSize.p + 2}px`
+
+    // this.$refs.node_three_layer.style.paddingTop = this.paddingWidth
+    // this.$refs.node_three_layer.style.paddingRight = this.paddingWidth
+    // this.$refs.node_three_layer.style.paddingLeft = this.paddingWidth
+    // this.$refs.node_three_layer.style.paddingBottom = '12px'
   },
   methods: {
 
@@ -46,20 +50,23 @@ $shareRadius: 1000px
 
 .outside-layer
     position: absolute
-    display: inline-block
     border-radius: $shareRadius
-    padding: 2px
+    display: flex
+    justify-content: center
+    align-items: center
     background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
     background: -moz-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
     background: -webkit-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
     background: -o-linear-gradient(135deg, #e0e0e0 0%, #ffffff 44%)
     .inside-layer
-        display: inline-block
         border-radius: $shareRadius
         background-color: $BG-color
-    &:hover
-        box-shadow: 5px 5px 5px 1px #e3e3e3
-        -webkit-box-shadow: 5px 5px 5px 1px #e3e3e3
-        -moz-box-shadow: 5px 5px 5px 1px #e3e3e3
-        -o-box-shadow: 5px 5px 5px 1px #e3e3e3
+        display: flex
+        justify-content: center
+        align-items: center
+    // &:hover
+    //     box-shadow: 5px 5px 5px 1px #e3e3e3
+    //     -webkit-box-shadow: 5px 5px 5px 1px #e3e3e3
+    //     -moz-box-shadow: 5px 5px 5px 1px #e3e3e3
+    //     -o-box-shadow: 5px 5px 5px 1px #e3e3e3
 </style>
