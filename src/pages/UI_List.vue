@@ -1,6 +1,6 @@
 <template lang="pug">
   #ui-work-type-list
-    .title-box {{griphicWorksList.title}}
+    .title-box.test1(ref="test") {{griphicWorksList.title}}
     el-row
       el-col(
         :xs="12"
@@ -9,7 +9,9 @@
         v-for="(item, index) in griphicWorksList.list"
         :key="index"
         )
-        floatLabel(:imgSize="contentSize")
+        floatLabel(
+          :imgSize="contentSize"
+          )
           img(
             :src="require(`../assets/images/works_list_page_icon/griphic/${item.src}.png`)"
             ref="el_list_img"
@@ -78,6 +80,15 @@ export default {
     
   },
   mounted () {
+    setTimeout(() => {
+
+      this.$refs.test.classList.add('test')
+    }, 2000)
+
+    setTimeout(() => {
+
+      this.$refs.test.classList.remove('test')
+    }, 4000)
     this.setImgStyle()
   },
   methods: {
@@ -122,7 +133,6 @@ $finallyBGColor: hsl(0, 0, 50)
 
 #ui-work-type-list
   .title-box
-    width: 50%
     margin: 10vh auto 15vh
     letter-spacing: 5px
     font-weight: lighter
@@ -132,7 +142,29 @@ $finallyBGColor: hsl(0, 0, 50)
     color: transparent
     animation: testAnimation 5s
     text-align: center
+    transition: font-size 10s
+    -moz-transition: width 10s
+    -webkit-transition: width 10s
+    -o-transition: width 10s
+    -ms-transition: width 10s
+  .title-box.test1
     font-size: 18px
+    transition: font-size 2s
+    -moz-transition: font-size 2s
+    -webkit-transition: font-size 2s
+    -o-transition: font-size 2s
+    -ms-transition: font-size 2s
+  .title-box.test1.test
+    font-size: 50px
+  // .title-box.test1
+  //   width: 50%
+  //   transition: width 2s
+  //   -moz-transition: width 2s
+  //   -webkit-transition: width 2s
+  //   -o-transition: width 2s
+  //   -ms-transition: width 2s
+  // .title-box.test1.test
+  //   width: 90%
   .el-row
     margin: 0 10vw
     .el-col
