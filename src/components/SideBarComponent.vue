@@ -63,11 +63,10 @@ export default {
       this.isActive = !this.isActive
     },
     toNextPage(path) {
-      if(this.$route.path === path) {
-        this.isActive = false
-      } else {
+      if(this.$route.path !== path) {
         this.$router.push(path)
       }
+      this.isActive = false
     }
 
   },

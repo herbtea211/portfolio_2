@@ -1,12 +1,12 @@
 <template lang="pug">
   #work-type-list
-    .title-box 繁忙的城市,每個人都在自己的路上和別人相遇著
+    .title-box {{currentWorksList.title}}
     el-row
       el-col(
         :xs="12"
         :sm="12"
         :md="6"
-        v-for="(item, index) in list"
+        v-for="(item, index) in currentWorksList.list"
         :key="index"
         )
         floatLabel(:imgSize="contentSize")
@@ -30,40 +30,84 @@ export default {
     },
     data () {
     return {
-      list: [
-        {
-          name: '菩藝蘭坊',
-          src: '0'
-        },
-        {
-          name: 'MissQ',
-          src: '1'
-        },
-        {
-          name: 'Coffee+',
-          src: '2'
-        },
-        {
-          name: '濟公會',
-          src: '3'
-        },
-        {
-          name: 'CENTER青年旅社',
-          src: '4'
-        },
-        {
-          name: '博客',
-          src: '5'
-        },
-        {
-          name: 'ZETA捷達珠寶',
-          src: '6'
-        },
-        {
-          name: '老盧',
-          src: '7'
-        },
+      griphicWorksList: {
+        title: '設計是海,只要妳像魚一樣自在',
+        list: [
+          {
+            name: '菩藝蘭坊',
+            src: '0'
+          },
+          {
+            name: 'MissQ',
+            src: '1'
+          },
+          {
+            name: 'Coffee+',
+            src: '2'
+          },
+          {
+            name: '濟公會',
+            src: '3'
+          },
+          {
+            name: 'CENTER青年旅社',
+            src: '4'
+          },
+          {
+            name: '博客',
+            src: '5'
+          },
+          {
+            name: 'ZETA捷達珠寶',
+            src: '6'
+          },
+          {
+            name: '老盧',
+            src: '7'
+          }
+        ],
+      },
+      uiWorksList: {
+        title: 'UI是繁忙的城市,每個人都在自己的路上和別人相遇著',
+        list: [
+          {
+            name: '菩藝蘭坊',
+            src: '0'
+          },
+          {
+            name: 'MissQ',
+            src: '1'
+          },
+          {
+            name: 'Coffee+',
+            src: '2'
+          },
+          {
+            name: '濟公會',
+            src: '3'
+          },
+          {
+            name: 'CENTER青年旅社',
+            src: '4'
+          },
+          {
+            name: '博客',
+            src: '5'
+          },
+          {
+            name: 'ZETA捷達珠寶',
+            src: '6'
+          },
+          {
+            name: '老盧',
+            src: '7'
+          }
       ],
+      },
+      currentWorksList: {
+        title: '',
+        list: []
+      },
       contentSize: {
         w: 90,
         h: 90,
@@ -74,14 +118,36 @@ export default {
   computed: {
     
   },
-  mounted () {
-    this.$refs.el_list_img.forEach((el) => {
-      el.style.width = `${this.contentSize.w}px`
-      el.style.height = `${this.contentSize.h}px`
-    })
+  async mounted () {
+    await this.setPage()
+    this.setImgStyle()
   },
   methods: {
-
+    setPage() {
+      console.log('--', this.$route.params.from)
+      switch(this.$route.params.from) {
+        case 'ui':
+          console.log('ui')
+          this.currentWorksList.title = this.uiWorksList.title
+          this.uiWorksList.list.forEach((item) => {
+            this.currentWorksList.list.push(item)
+          })
+        break;
+        case 'griphic':
+          console.log('griphic')
+          this.currentWorksList.title = this.griphicWorksList.title
+          this.griphicWorksList.list.forEach((item) => {
+            this.currentWorksList.list.push(item)
+          })
+        break;
+      }
+    },
+    setImgStyle() {
+          this.$refs.el_list_img.forEach((el) => {
+            el.style.width = `${this.contentSize.w}px`
+            el.style.height = `${this.contentSize.h}px`
+          })
+    }
   },
   watch: {
 
