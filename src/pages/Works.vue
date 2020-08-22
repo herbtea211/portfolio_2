@@ -1,15 +1,20 @@
 <template lang="pug">
   #works
-    h1 works
-    div(:is="currentWork")
+    .workCon(
+        :is="currentWork"
+        ref="el_workCon"
+        )
+    sidebarCompoment
 </template>
 
 <script>
 
+import sidebarCompoment from '@/components/SideBarComponent'
+
 export default {
   name: 'worksPage',
     components: {
-        // griphic01
+        sidebarCompoment,
     },
     data () {
     return {
@@ -22,7 +27,6 @@ export default {
     }
   },
   mounted () {
-    
   },
   methods: {
       
@@ -35,6 +39,13 @@ export default {
 
 <style lang="sass">
 
+@import '../assets/styles/var'
+
+
 #works
-  
+  .workCon
+    background-color: #f6f6ff
+
+// @media screen and (max-width: 1400px)
+
 </style>
