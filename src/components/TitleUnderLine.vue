@@ -1,5 +1,5 @@
 <template lang="pug">
-  #title-under-line(ref="el_title_under_line")
+  #title-under-line
 </template>
 
 <script>
@@ -9,6 +9,9 @@ export default {
     components: {
    
     },
+    props: [
+      'name'
+    ],
     data () {
     return {
       
@@ -19,7 +22,10 @@ export default {
   },
   mounted () {
 
-
+    // window.onscroll = () => {
+    //       console.log(this.$refs.el_title_under_line.getBoundingClientRect())
+    // }
+    
   },
   methods: {
 
