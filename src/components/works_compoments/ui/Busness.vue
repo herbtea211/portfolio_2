@@ -1,5 +1,5 @@
 <template lang="pug">
-  #busness
+  #busness(ref="el_busness")
     .Introduction
       img.logo(
         :src="require('@/assets/images/works_img/ui/busness/18.png')"
@@ -11,7 +11,7 @@
         .justify-text
           span 簡
           span 介
-        titleUnderLine(name="01")
+        .title-under-line
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業基於這兩個前提這個版型必須具備幾項特色:
       .point
         img(
@@ -40,7 +40,7 @@
     .view-style
       .title
         h2 視覺風格
-        titleUnderLine(name="02")
+        .title-under-line
       img(
           :src="require('@/assets/images/works_img/ui/busness/6.png')"
         )
@@ -92,12 +92,11 @@
 
 <script>
 
-import titleUnderLine from '@/components/TitleUnderLine'
 
 export default {
   name: 'busness',
     components: {
-      titleUnderLine
+      
     },
     data () {
     return {
@@ -108,7 +107,37 @@ export default {
     
   },
   mounted () {
+    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].clientHeight, 'clientHeight')
+    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].clientTop, 'clientTop')
+    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].offsetHeight, 'offsetHeight')
+    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].offsetTop, 'offsetTop')
+    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].scrollHeight, 'scrollHeight')
+    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].scrollTop, 'scrollTop')
 
+    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].clientHeight, 'clientHeight')
+    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].clientTop, 'clientTop')
+    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].offsetHeight, 'offsetHeight')
+    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].offsetTop, 'offsetTop')
+    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].scrollHeight, 'scrollHeight')
+    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].scrollTop, 'scrollTop')
+
+    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].clientHeight, 'clientHeight')
+    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].clientTop, 'clientTop')
+    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].offsetHeight, 'offsetHeight')
+    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].offsetTop, 'offsetTop')
+    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].scrollHeight, 'scrollHeight')
+    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].scrollTop, 'scrollTop')
+
+    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].clientHeight, 'clientHeight')
+    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].clientTop, 'clientTop')
+    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].offsetHeight, 'offsetHeight')
+    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].offsetTop, 'offsetTop')
+    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].scrollHeight, 'scrollHeight')
+    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].scrollTop, 'scrollTop')
+
+
+
+   
 },
   methods: {
 
@@ -130,6 +159,18 @@ export default {
       justify-content: space-around
       span
         font-size: 36px
+    .title-under-line
+      position: relative
+      width: 0%
+      height: 2px
+      margin-top: 15px
+      background-color: #000000
+      transition: width 0.3s
+      -webkit-transition: width 0.3s
+      -moz-transition: width 0.3s
+      -o-transition: width 0.3s
+    .title-under-line.isShow
+      width: 100%
   .Introduction
     display: flex
     flex-flow: column nowrap
