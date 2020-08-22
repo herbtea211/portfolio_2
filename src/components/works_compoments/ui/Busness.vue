@@ -11,6 +11,7 @@
         .justify-text
           span 簡
           span 介
+        titleUnderLine
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業基於這兩個前提這個版型必須具備幾項特色:
       .point
         img(
@@ -39,6 +40,7 @@
     .view-style
       .title
         h2 視覺風格
+        titleUnderLine
       img(
           :src="require('@/assets/images/works_img/ui/busness/6.png')"
         )
@@ -90,10 +92,12 @@
 
 <script>
 
+import titleUnderLine from '@/components/TitleUnderLine'
+
 export default {
   name: 'busness',
     components: {
-   
+      titleUnderLine
     },
     data () {
     return {
@@ -104,8 +108,8 @@ export default {
     
   },
   mounted () {
-    
-  },
+
+},
   methods: {
 
   },
