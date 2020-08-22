@@ -37,42 +37,42 @@ export default {
           {
             name: '菩藝蘭坊',
             src: '0',
-            toPath: '/works/griphic/pu_e'
+            toPath: 'griphic/pu_e'
           },
           {
             name: 'MissQ',
             src: '1',
-            toPath: '/works/griphic/miss_q'
+            toPath: 'griphic/miss_q'
           },
           {
             name: 'Coffee+',
             src: '2',
-            toPath: '/works/griphic/coffee_plus'
+            toPath: 'griphic/coffee_plus'
           },
           {
             name: '濟公會',
             src: '3',
-            toPath: '/works/griphic/monk'
+            toPath: 'griphic/monk'
           },
           {
             name: 'CENTER青年旅社',
             src: '4',
-            toPath: '/works/griphic/center'
+            toPath: 'griphic/center'
           },
           {
             name: '博客',
             src: '5',
-            toPath: '/works/griphic/w_m'
+            toPath: 'griphic/w_m'
           },
           {
             name: 'ZETA捷達珠寶',
             src: '6',
-            toPath: '/works/griphic/zeta'
+            toPath: 'griphic/zeta'
           },
           {
             name: '老盧',
             src: '7',
-            toPath: '/works/griphic/lu'
+            toPath: 'griphic/lu'
           }
         ],
       },
@@ -96,8 +96,13 @@ export default {
             el.style.height = `${this.contentSize.h}px`
           })
     },
-    toUIWork(toPath) {
-      this.$router.push(toPath)
+    async toUIWork(toPath) {
+       let payload = {
+        url: toPath
+        }
+      await this.$store.dispatch('setCurrentWork', payload)
+      let url = `/works/${toPath}`
+      this.$router.push(url)
     }
   },
   watch: {
