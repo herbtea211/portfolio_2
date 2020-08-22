@@ -8,7 +8,9 @@
         :src="require('@/assets/images/works_img/ui/busness/0.png')"
       )
       .title
-        h2 簡介
+        .justify-text
+          span 簡
+          span 介
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業基於這兩個前提這個版型必須具備幾項特色:
       .point
         img(
@@ -116,6 +118,14 @@ export default {
 <style lang="sass">
 
 #busness
+  .title
+    width: 30%
+    .justify-text
+      display: flex
+      flex-flow: row nowrap
+      justify-content: space-around
+      span
+        font-size: 36px
   .Introduction
     display: flex
     flex-flow: column nowrap
@@ -125,6 +135,17 @@ export default {
       width: 60%
       margin-bottom: 20vh
     .logo
-      width: 300px
+      width: 250px
+    .title
+
+
+@media screen and (max-width: 450px)
+  #busness
+    .Introduction
+      img
+        width: 90%
+        margin-bottom: 10vh
+      .logo
+        width: 150px
   
 </style>

@@ -43,8 +43,11 @@ export default {
 
 
 #works
+  width: 100vw
+  overflow: hidden
   .workCon
     background-color: #f6f6ff
+   
 
 // @media screen and (max-width: 1400px)
 
