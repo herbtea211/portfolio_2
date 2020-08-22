@@ -1,5 +1,5 @@
 <template lang="pug">
-  #busness(ref="el_busness")
+  #busness
     .Introduction
       img.logo(
         :src="require('@/assets/images/works_img/ui/busness/18.png')"
@@ -107,36 +107,6 @@ export default {
     
   },
   mounted () {
-    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].clientHeight, 'clientHeight')
-    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].clientTop, 'clientTop')
-    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].offsetHeight, 'offsetHeight')
-    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].offsetTop, 'offsetTop')
-    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].scrollHeight, 'scrollHeight')
-    console.log(this.$refs.el_busness.children[0].className, this.$refs.el_busness.children[0].scrollTop, 'scrollTop')
-
-    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].clientHeight, 'clientHeight')
-    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].clientTop, 'clientTop')
-    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].offsetHeight, 'offsetHeight')
-    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].offsetTop, 'offsetTop')
-    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].scrollHeight, 'scrollHeight')
-    console.log(this.$refs.el_busness.children[1].className, this.$refs.el_busness.children[1].scrollTop, 'scrollTop')
-
-    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].clientHeight, 'clientHeight')
-    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].clientTop, 'clientTop')
-    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].offsetHeight, 'offsetHeight')
-    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].offsetTop, 'offsetTop')
-    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].scrollHeight, 'scrollHeight')
-    console.log(this.$refs.el_busness.children[2].className, this.$refs.el_busness.children[2].scrollTop, 'scrollTop')
-
-    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].clientHeight, 'clientHeight')
-    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].clientTop, 'clientTop')
-    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].offsetHeight, 'offsetHeight')
-    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].offsetTop, 'offsetTop')
-    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].scrollHeight, 'scrollHeight')
-    console.log(this.$refs.el_busness.children[3].className, this.$refs.el_busness.children[3].scrollTop, 'scrollTop')
-
-
-
    
 },
   methods: {
