@@ -13,6 +13,7 @@
           img(
             :src="require(`../assets/images/works_list_page_icon/griphic/${item.src}.png`)"
             ref="el_list_img"
+            @click="toUIWork(item.toPath)"
             )
         h3 {{item.name}}
     sidebarCompoment
@@ -35,35 +36,43 @@ export default {
         list: [
           {
             name: '菩藝蘭坊',
-            src: '0'
+            src: '0',
+            toPath: '/works/griphic/pu_e'
           },
           {
             name: 'MissQ',
-            src: '1'
+            src: '1',
+            toPath: '/works/griphic/miss_q'
           },
           {
             name: 'Coffee+',
-            src: '2'
+            src: '2',
+            toPath: '/works/griphic/coffee_plus'
           },
           {
             name: '濟公會',
-            src: '3'
+            src: '3',
+            toPath: '/works/griphic/monk'
           },
           {
             name: 'CENTER青年旅社',
-            src: '4'
+            src: '4',
+            toPath: '/works/griphic/center'
           },
           {
             name: '博客',
-            src: '5'
+            src: '5',
+            toPath: '/works/griphic/w_m'
           },
           {
             name: 'ZETA捷達珠寶',
-            src: '6'
+            src: '6',
+            toPath: '/works/griphic/zeta'
           },
           {
             name: '老盧',
-            src: '7'
+            src: '7',
+            toPath: '/works/griphic/lu'
           }
         ],
       },
@@ -86,6 +95,9 @@ export default {
             el.style.width = `${this.contentSize.w}px`
             el.style.height = `${this.contentSize.h}px`
           })
+    },
+    toUIWork(toPath) {
+      this.$router.push(toPath)
     }
   },
   watch: {

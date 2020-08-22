@@ -35,7 +35,7 @@ export default new Router({
       component: uiListPage
     },
     {
-      path: '/works',
+      path: '/works/:fromType/:currentBork',
       name: 'works',
       component: worksPage
     }

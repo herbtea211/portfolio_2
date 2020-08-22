@@ -11,11 +11,11 @@
         )
         floatLabel(
           :imgSize="contentSize"
-          @click="toUIWork"
           )
           img(
-            :src="require(`../assets/images/works_list_page_icon/griphic/${item.src}.png`)"
+            :src="require(`@/assets/images/works_list_page_icon/ui/${item.src}.png`)"
             ref="el_list_img"
+            @click="toUIWork(item.toPath)"
             )
         h3 {{item.name}}
     sidebarCompoment
@@ -24,6 +24,7 @@
 <script>
 import sidebarCompoment from '@/components/SideBarComponent'
 import floatLabel from '@/components/FloatLabel'
+
 
 export default {
   name: 'uiListPage',
@@ -37,36 +38,9 @@ export default {
         title: 'UI是繁忙的城市,每個人都在自己的路上和別人相遇著',
         list: [
           {
-            name: '菩藝蘭坊',
-            src: '0'
-          },
-          {
-            name: 'MissQ',
-            src: '1'
-          },
-          {
-            name: 'Coffee+',
-            src: '2'
-          },
-          {
-            name: '濟公會',
-            src: '3'
-          },
-          {
-            name: 'CENTER青年旅社',
-            src: '4'
-          },
-          {
-            name: '博客',
-            src: '5'
-          },
-          {
-            name: 'ZETA捷達珠寶',
-            src: '6'
-          },
-          {
-            name: '老盧',
-            src: '7'
+            name: 'BUSNESS',
+            src: '0',
+            toPath: 'ui/busness'
           }
         ],
       },
@@ -84,11 +58,20 @@ export default {
     this.setImgStyle()
   },
   methods: {
+
     setImgStyle() {
           this.$refs.el_list_img.forEach((el) => {
             el.style.width = `${this.contentSize.w}px`
             el.style.height = `${this.contentSize.h}px`
           })
+    },
+    async toUIWork(toPath) {
+      let payload = {
+        url: toPath
+        }
+      await this.$store.dispatch('setCurrentWork', payload)
+      let url = `/works/${toPath}`
+      this.$router.push(url)
     }
   },
   watch: {
