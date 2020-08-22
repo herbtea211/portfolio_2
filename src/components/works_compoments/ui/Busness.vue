@@ -117,5 +117,14 @@ export default {
 
 #busness
   .Introduction
+    display: flex
+    flex-flow: column nowrap
+    align-items: center
+    padding-top: 10vh
+    img
+      width: 60%
+      margin-bottom: 20vh
+    .logo
+      width: 300px
   
 </style>
