@@ -11,7 +11,7 @@
         .justify-text
           span 簡
           span 介
-        .title-under-line
+          .title-under-line
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業<br>基於這兩個前提這次改版有幾個重點:
     .point
       el-carousel(
@@ -118,17 +118,6 @@ export default {
     
   },
   mounted () {
-  //  console.log('test', this.$refs.el_carousel.$el.offsetWidth)
-  //  let carouselWidth = this.$refs.el_carousel.$el.offsetWidth
-  //  let carousel__containerArray = [...document.getElementsByClassName('el-carousel__container')]
-  //  console.log('carousel__container', carousel__containerArray[0])
-  // //  carousel__containerArray.forEach((el) => {
-  // //    el.style.height = '502px'
-  // //  })
-  // carousel__containerArray[0].style.height = '502px'
-
-  // //  document.getElementsByClassName('el-carousel__container').style.height = `this.$refs.el_carousel.$el.offsetWidth * 1.718${px}`
-  // //  this.$refs.el_carousel.$el.style.height = this.$refs.el_carousel.$el.offsetWidth * 1.718
 },
   methods: {
 
@@ -143,6 +132,7 @@ export default {
 
 $focusColor: #e39e44
 $carouselWidth: 300px
+$carouselWidthMoble: 250px
 $carouselLeft: 20%
 
 #busness
@@ -152,20 +142,22 @@ $carouselLeft: 20%
       display: flex
       flex-flow: row nowrap
       justify-content: space-around
+      position: relative
       span
         font-size: 36px
+        margin-bottom: 20px
+      .title-under-line
+        position: absolute
+        bottom: 0px
+        width: 100%
+        height: 2px
+        background-color: $focusColor
   p
     width: 60%
     margin: 10vh auto
     font-size: 18px
     letter-spacing: 3px
     line-height: 36px
-    .title-under-line
-      position: relative
-      width: 100%
-      height: 2px
-      margin-top: 15px
-      background-color: $focusColor
   .Introduction
     display: flex
     flex-flow: column nowrap
@@ -194,15 +186,31 @@ $carouselLeft: 20%
       h2
         color: $focusColor
       p
-        margin: 20px 0px 0px 0px 
+        margin: 20px 0px 0px 0px
 
-@media screen and (max-width: 450px)
+@media screen and (max-width: 1400px)
   #busness
+    p
+      margin: 4vh auto 7vh
     .Introduction
       img
-        width: 90%
-        margin-bottom: 10vh
-      .logo
-        width: 150px
+        margin-bottom: 5vh
+
+@media screen and (max-width: 450px)
+  @media (orientation: portrait) // 直視 , landscape 橫式
+    #busness
+      .point
+        flex-flow: column
+        align-items: center
+        .el-carousel
+          left: 0px
+          width: $carouselWidthMoble
+          .el-carousel__container
+            height: $carouselWidthMoble * 1.718
+        .text-box
+          text-align: center
+          margin: 20px 0px 
+          p
+            margin: 20px auto
   
 </style>
