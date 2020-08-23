@@ -45,12 +45,14 @@
           img(
             :src="require(`@/assets/images/works_img/ui/busness/${item}.png`)"
           )
-    .point
-      img(
-        :src="require('@/assets/images/works_img/ui/busness/5.png')"
-      )
-      h2 可以輕鬆應付各種客戶需求的UI
-      p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
+    .point.auto-scroll
+      .scroll-box
+        img(
+          :src="require('@/assets/images/works_img/ui/busness/5.png')"
+        )
+      .text-box
+        h2 可以輕鬆應付各種客戶需求的UI
+        p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .view-style
       .title
         h2 視覺風格
@@ -203,13 +205,18 @@ $carouselLeft: 20%
     .el-carousel
       left: unset
       right: 20%
-      .el-carousel__container
-        img
-      .el-carousel__indicators
     .text-box
       margin-left: 20%
-      h2
-      p
+  .auto-scroll
+    .scroll-box
+      width: 450px
+      height: 450px * 1.2
+      overflow: hidden
+      border-radius: 20px
+      img
+        width: 100%
+    .text-box
+      margin-left: unset
 
 
 @media screen and (max-width: 1400px)
