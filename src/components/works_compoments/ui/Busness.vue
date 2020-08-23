@@ -216,11 +216,13 @@ $carouselLeft: 20%
     .text-box
       margin-left: 20%
   .auto-scroll
+    padding: 0px 20%
     .scroll-box
       width: 450px
       height: 450px * 1.2
       overflow: hidden
       border-radius: 20px
+      flex: 1 1 100px
       img
         width: 100%
         position: relative
@@ -230,7 +232,12 @@ $carouselLeft: 20%
         animation-iteration-count: infinite
         animation-delay: 3s
     .text-box
-      margin-left: unset
+      margin-left: 50px
+      flex: 1 1 100px
+      h2
+        width: 100%
+      p
+        width: 100%
 
 
 @media screen and (max-width: 1400px)
@@ -280,5 +287,14 @@ $carouselLeft: 20%
             margin: 0 auto
           p
             margin: 20px auto
+      .auto-scroll
+        .scroll-box
+          width: $carouselWidthMoble
+          height: $carouselWidthMoble * 1.7
+          flex: unset
+          img
+        .text-box
+          h2
+          p
   
 </style>
