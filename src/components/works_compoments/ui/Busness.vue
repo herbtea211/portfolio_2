@@ -12,7 +12,7 @@
           span 簡
           span 介
         .title-under-line
-      p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業基於這兩個前提這個版型必須具備幾項特色:
+      p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業<br>基於這兩個前提這次改版有幾個重點:
       .point
         img(
           :src="require('@/assets/images/works_img/ui/busness/1.png')"
@@ -120,6 +120,8 @@ export default {
 
 <style lang="sass">
 
+$focusColor: #e39e44
+
 #busness
   .title
     width: 30%
@@ -129,18 +131,18 @@ export default {
       justify-content: space-around
       span
         font-size: 36px
+  p
+    width: 60%
+    margin: 10vh auto
+    font-size: 18px
+    letter-spacing: 3px
+    line-height: 36px
     .title-under-line
       position: relative
-      width: 0%
+      width: 100%
       height: 2px
       margin-top: 15px
-      background-color: #000000
-      transition: width 0.3s
-      -webkit-transition: width 0.3s
-      -moz-transition: width 0.3s
-      -o-transition: width 0.3s
-    .title-under-line.isShow
-      width: 100%
+      background-color: $focusColor
   .Introduction
     display: flex
     flex-flow: column nowrap
