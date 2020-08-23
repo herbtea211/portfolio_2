@@ -147,6 +147,14 @@ $carouselWidth: 300px
 $carouselWidthMoble: 250px
 $carouselLeft: 20%
 
+@keyframes scrollImgAnimation
+  from
+    top: 0px
+  50%
+    top: -500px
+  to
+    top: 0px
+
 #busness
   .title
     width: 30%
@@ -215,6 +223,12 @@ $carouselLeft: 20%
       border-radius: 20px
       img
         width: 100%
+        position: relative
+        top: 0px
+        animation: scrollImgAnimation 10s
+        animation-direction: alternate
+        animation-iteration-count: infinite
+        animation-delay: 3s
     .text-box
       margin-left: unset
 
