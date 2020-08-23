@@ -13,30 +13,38 @@
           span 介
         .title-under-line
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業<br>基於這兩個前提這次改版有幾個重點:
-      .point
-        img(
-          :src="require('@/assets/images/works_img/ui/busness/1.png')"
+    .point
+      el-carousel(
+        :autoplay="true"
+        arrow="never"
+        :loop="true"
+        :interval="2000"
+        ref="el_carousel"
         )
-        img(
-          :src="require('@/assets/images/works_img/ui/busness/2.png')"
-        )
+        el-carousel-item(
+          v-for="(item, index) in carousel_img_1" :key="item"
+          )
+          img(
+            :src="require(`@/assets/images/works_img/ui/busness/${item}.png`)"
+          )
+      .text-box
         h2 風格簡約但不強烈
         p 為了適應各種不同的零售商品EX:服飾,食品,生活百貨..等風格太過強烈無法跟多樣性的店家做搭配
-      .point
-        img(
-          :src="require('@/assets/images/works_img/ui/busness/3.png')"
-        )
-        img(
-          :src="require('@/assets/images/works_img/ui/busness/4.png')"
-        )
-        h2 盡量符合多數消費者使用習慣
-        p 消費者的年齡層非常廣泛跨越了至少兩個世代太新穎或太老舊的設計方式都會造成不同年齡層的使用障礙
-      .point
-        img(
-          :src="require('@/assets/images/works_img/ui/busness/5.png')"
-        )
-        h2 可以輕鬆應付各種客戶需求的UI
-        p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
+    .point
+      img(
+        :src="require('@/assets/images/works_img/ui/busness/3.png')"
+      )
+      img(
+        :src="require('@/assets/images/works_img/ui/busness/4.png')"
+      )
+      h2 盡量符合多數消費者使用習慣
+      p 消費者的年齡層非常廣泛跨越了至少兩個世代太新穎或太老舊的設計方式都會造成不同年齡層的使用障礙
+    .point
+      img(
+        :src="require('@/assets/images/works_img/ui/busness/5.png')"
+      )
+      h2 可以輕鬆應付各種客戶需求的UI
+      p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .view-style
       .title
         h2 視覺風格
@@ -100,14 +108,27 @@ export default {
     },
     data () {
     return {
-      
+      carousel_img_1: [
+        '1',
+        '2'
+      ]
     }
   },
   computed: {
     
   },
   mounted () {
-   
+  //  console.log('test', this.$refs.el_carousel.$el.offsetWidth)
+  //  let carouselWidth = this.$refs.el_carousel.$el.offsetWidth
+  //  let carousel__containerArray = [...document.getElementsByClassName('el-carousel__container')]
+  //  console.log('carousel__container', carousel__containerArray[0])
+  // //  carousel__containerArray.forEach((el) => {
+  // //    el.style.height = '502px'
+  // //  })
+  // carousel__containerArray[0].style.height = '502px'
+
+  // //  document.getElementsByClassName('el-carousel__container').style.height = `this.$refs.el_carousel.$el.offsetWidth * 1.718${px}`
+  // //  this.$refs.el_carousel.$el.style.height = this.$refs.el_carousel.$el.offsetWidth * 1.718
 },
   methods: {
 
@@ -121,6 +142,8 @@ export default {
 <style lang="sass">
 
 $focusColor: #e39e44
+$carouselWidth: 300px
+$carouselLeft: 20%
 
 #busness
   .title
@@ -153,8 +176,25 @@ $focusColor: #e39e44
       margin-bottom: 20vh
     .logo
       width: 250px
-    .title
-
+  .point
+    display: flex
+    .el-carousel
+      width: $carouselWidth
+      left: $carouselLeft
+      .el-carousel__container
+        width: 100%
+        height: $carouselWidth * 1.718
+        img
+          width: 100%
+      .el-carousel__indicators
+        display: none
+    .text-box
+      margin-left: $carouselLeft + 10%
+      letter-spacing: 3px
+      h2
+        color: $focusColor
+      p
+        margin: 20px 0px 0px 0px 
 
 @media screen and (max-width: 450px)
   #busness
