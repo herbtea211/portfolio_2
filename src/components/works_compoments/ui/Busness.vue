@@ -19,7 +19,6 @@
         arrow="never"
         :loop="true"
         :interval="2000"
-        ref="el_carousel"
         )
         el-carousel-item(
           v-for="(item, index) in carousel_img_1" :key="item"
@@ -30,15 +29,22 @@
       .text-box
         h2 風格簡約但不強烈
         p 為了適應各種不同的零售商品EX:服飾,食品,生活百貨..等風格太過強烈無法跟多樣性的店家做搭配
-    .point
-      img(
-        :src="require('@/assets/images/works_img/ui/busness/3.png')"
-      )
-      img(
-        :src="require('@/assets/images/works_img/ui/busness/4.png')"
-      )
-      h2 盡量符合多數消費者使用習慣
-      p 消費者的年齡層非常廣泛跨越了至少兩個世代太新穎或太老舊的設計方式都會造成不同年齡層的使用障礙
+    .point.right
+      .text-box
+        h2 盡量符合多數消費者使用習慣
+        p 消費者的年齡層非常廣泛跨越了至少兩個世代太新穎或太老舊的設計方式都會造成不同年齡層的使用障礙
+      el-carousel(
+        :autoplay="true"
+        arrow="never"
+        :loop="true"
+        :interval="1500"
+        )
+        el-carousel-item(
+          v-for="(item, index) in carousel_img_2" :key="item"
+          )
+          img(
+            :src="require(`@/assets/images/works_img/ui/busness/${item}.png`)"
+          )
     .point
       img(
         :src="require('@/assets/images/works_img/ui/busness/5.png')"
@@ -111,6 +117,10 @@ export default {
       carousel_img_1: [
         '1',
         '2'
+      ],
+      carousel_img_2: [
+        '3',
+        '4'
       ]
     }
   },
@@ -169,13 +179,14 @@ $carouselLeft: 20%
     .logo
       width: 250px
   .point
+    margin-bottom: 120px
     display: flex
     .el-carousel
       width: $carouselWidth
       left: $carouselLeft
       .el-carousel__container
         width: 100%
-        height: $carouselWidth * 1.718
+        height: $carouselWidth * 1.4
         img
           width: 100%
       .el-carousel__indicators
@@ -185,8 +196,21 @@ $carouselLeft: 20%
       letter-spacing: 3px
       h2
         color: $focusColor
+        width: 60%
       p
         margin: 20px 0px 0px 0px
+  .right
+    .el-carousel
+      left: unset
+      right: 20%
+      .el-carousel__container
+        img
+      .el-carousel__indicators
+    .text-box
+      margin-left: 20%
+      h2
+      p
+
 
 @media screen and (max-width: 1400px)
   #busness
@@ -195,6 +219,26 @@ $carouselLeft: 20%
     .Introduction
       img
         margin-bottom: 5vh
+    .point
+      margin-bottom: 40px
+      .el-carousel
+        .el-carousel__container
+          height: $carouselWidth * 1.1
+  @media (orientation: landscape) // 直視 , landscape 橫式
+    #busness
+      .point
+        margin-bottom: 100px
+        .el-carousel
+          .el-carousel__container
+            height: $carouselWidth * 1.4
+
+@media screen and (max-width: 900px)
+  #busness
+    .point
+      .el-carousel
+        .el-carousel__container
+          height: $carouselWidth * 0.85
+
 
 @media screen and (max-width: 450px)
   @media (orientation: portrait) // 直視 , landscape 橫式
@@ -206,10 +250,13 @@ $carouselLeft: 20%
           left: 0px
           width: $carouselWidthMoble
           .el-carousel__container
-            height: $carouselWidthMoble * 1.718
+            height: $carouselWidthMoble * 1.72
         .text-box
           text-align: center
-          margin: 20px 0px 
+          margin: 20px 0px
+          h2
+            width: 80%
+            margin: 0 auto
           p
             margin: 20px auto
   
