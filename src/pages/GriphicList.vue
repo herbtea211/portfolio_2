@@ -1,5 +1,5 @@
 <template lang="pug">
-  #griphic-work-type-list
+  #griphic-work-type-list(class="animated fadeIn")
     .title-box {{griphicWorksList.title}}
     el-row
       el-col(

@@ -1,8 +1,7 @@
 <template lang="pug">
-  #works
+  #works(class="animated fadeIn")
     .workCon(
         :is="currentWork"
-        ref="el_workCon"
         )
     sidebarCompoment
 </template>

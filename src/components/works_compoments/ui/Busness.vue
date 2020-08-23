@@ -65,7 +65,7 @@
           :src="require('@/assets/images/works_img/ui/busness/6.png')"
         )
       p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
-    .color-scheme
+    .color-scheme-box
       .title
         .justify-text
           span 配
@@ -270,6 +270,7 @@ $carouselLeft: 20%
       p
         margin: 20px 0px 0px 0px
   .right
+    text-align: right
     .el-carousel
       left: unset
       right: 20%
@@ -308,8 +309,9 @@ $carouselLeft: 20%
     p
       text-align: left
       margin-top: 50px
-  .color-scheme
+  .color-scheme-box
     text-align: center
+    margin-bottom: 100px
     img
       width: 100%
     .title
@@ -362,7 +364,9 @@ $carouselLeft: 20%
       .el-carousel
         .el-carousel__container
           height: $carouselWidth * 1.1
-    .color-scheme
+    .right
+      text-align: left
+    .color-scheme-box
       p
         margin-bottom: 10px
       .el-row
@@ -402,11 +406,14 @@ $carouselLeft: 20%
             margin: 0 auto
           p
             margin: 20px auto
+            text-align: left
       .auto-scroll
         .scroll-box
           width: $carouselWidthMoble
           height: $carouselWidthMoble * 1.7
           flex: unset
+      .color-scheme-box
+        margin-bottom: 50px
       .icon-style
         .el-row
           margin-right: 15%
