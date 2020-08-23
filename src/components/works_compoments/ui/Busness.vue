@@ -55,53 +55,87 @@
         p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .view-style
       .title
-        h2 視覺風格
-        .title-under-line
+        .justify-text
+          span 視
+          span 覺
+          span 風
+          span 格
+          .title-under-line
       img(
           :src="require('@/assets/images/works_img/ui/busness/6.png')"
         )
       p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .color-scheme
       .title
-        h2 配色
-      img(
+        .justify-text
+          span 配
+          span 色
+          .title-under-line
+      img.circle(
           :src="require('@/assets/images/works_img/ui/busness/7.png')"
         )
       p 為了強烈提醒USER購物車裡尚有商品未結帳,用強烈的具有提示的意味,整支APP只有一個地方如此使用
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/8.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/9.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/10.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/11.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/12.png')"
-        )
-
+      el-row(
+        :gutter="20"
+      )
+        el-col(:sm="12")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/8.png')"
+            )
+          .focus-point
+        el-col(:sm="12")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/9.png')"
+            )
+          .focus-point.right
+      p 為了強烈提醒USER購物車裡尚有商品未結帳,用強烈的具有提示的意味,整支APP只有一個地方如此使用
+      el-row(
+        :gutter="20"
+      )
+        el-col(:sm="8")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/10.png')"
+            )
+        el-col(:sm="8")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/11.png')"
+            )
+        el-col(:sm="8")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/12.png')"
+            )
     .icon-style
       .title
-        h2 ICON
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/13.png')"
+        .justify-text
+          span I
+          span C
+          span O
+          span N
+          .title-under-line
+      el-row(
+        type="flex"
+        justify="center"
         )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/14.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/15.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/16.png')"
-        )
-      img(
-          :src="require('@/assets/images/works_img/ui/busness/17.png')"
-        )
+        el-col(:sm="3")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/13.png')"
+            )
+        el-col(:sm="3")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/14.png')"
+            )
+        el-col(:sm="3")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/15.png')"
+            )
+        el-col(:sm="3")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/16.png')"
+            )
+        el-col(:sm="3")
+          img(
+              :src="require('@/assets/images/works_img/ui/busness/17.png')"
+            )
       p ICON設計上以線條及塊狀元素元素構成,由最基礎的幾何造型做變化,多直角配正圓,去掉圓角結構,形成較穩重的感覺
       
 </template>
@@ -154,6 +188,32 @@ $carouselLeft: 20%
     top: -500px
   to
     top: 0px
+
+@keyframes circleImgAnimation
+  from
+    -moz-transform: rotate(0deg)
+    -webkit-transform: rotate(0deg)
+    -o-transform: rotate(0deg)
+    -ms-transform: rotate(0deg)
+  to
+    -moz-transform: rotate(360deg)
+    -webkit-transform: rotate(360deg)
+    -o-transform: rotate(360deg)
+    -ms-transform: rotate(360deg)
+
+@keyframes focusPointImgAnimation
+  from
+    -moz-transform: scale(0.5)
+    -webkit-transform: scale(0.5)
+    -o-transform: scale(0.5)
+    -ms-transform: scale(0.5)
+  to
+    -moz-transform: scale(1.5)
+    -webkit-transform: scale(1.5)
+    -o-transform: scale(1.5)
+    -ms-transform: scale(1.5)
+    opacity: 0.2
+
 
 #busness
   .title
@@ -227,8 +287,8 @@ $carouselLeft: 20%
         width: 100%
         position: relative
         top: 0px
-        animation: scrollImgAnimation 10s
-        animation-direction: alternate
+        animation: scrollImgAnimation 8s
+        // animation-direction: alternate
         animation-iteration-count: infinite
         animation-delay: 3s
     .text-box
@@ -238,6 +298,56 @@ $carouselLeft: 20%
         width: 100%
       p
         width: 100%
+  .view-style
+    text-align: center
+    .title
+      margin: 0px auto 50px
+    img
+      border-radius: 20px
+      width: 60%
+    p
+      text-align: left
+      margin-top: 50px
+  .color-scheme
+    text-align: center
+    img
+      width: 100%
+    .title
+      margin: 0px auto 50px
+    .circle
+      width: 130px
+      animation: circleImgAnimation 10s
+      animation-iteration-count: infinite
+    p
+      text-align: left
+    .el-row
+      padding-left: 20%
+      padding-right: 20%
+      .el-col
+        position: relative
+        .focus-point
+          width: 15px
+          height: 15px
+          background-color: #ff6686
+          border-radius: 1000px
+          position: absolute
+          top: 10%
+          left: 52%
+          animation: focusPointImgAnimation 0.8s
+          animation-iteration-count: infinite
+        .right
+          left: unset
+          right: 5%
+  .icon-style
+    .title
+      margin: 0 auto 50px
+    .el-row
+      .el-col
+        text-align: center
+        img
+          width: 50%
+    p
+      margin-bottom: 200px
 
 
 @media screen and (max-width: 1400px)
@@ -252,6 +362,11 @@ $carouselLeft: 20%
       .el-carousel
         .el-carousel__container
           height: $carouselWidth * 1.1
+    .color-scheme
+      p
+        margin-bottom: 10px
+      .el-row
+        margin-bottom: 50px
   @media (orientation: landscape) // 直視 , landscape 橫式
     #busness
       .point
@@ -292,9 +407,10 @@ $carouselLeft: 20%
           width: $carouselWidthMoble
           height: $carouselWidthMoble * 1.7
           flex: unset
-          img
-        .text-box
-          h2
-          p
+      .icon-style
+        .el-row
+          margin-right: 15%
+          margin-left: 15%
+
   
 </style>
