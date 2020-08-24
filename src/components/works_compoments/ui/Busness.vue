@@ -8,10 +8,9 @@
         :src="require('@/assets/images/works_img/ui/busness/0.png')"
       )
       .title
-        .justify-text
-          span 簡
-          span 介
-          .title-under-line
+        span 簡
+        span 介
+        .title-under-line
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業<br>基於這兩個前提這次改版有幾個重點:
     .point
       el-carousel(
@@ -55,22 +54,20 @@
         p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .view-style
       .title
-        .justify-text
-          span 視
-          span 覺
-          span 風
-          span 格
-          .title-under-line
+        span 視
+        span 覺
+        span 風
+        span 格
+        .title-under-line
       img(
           :src="require('@/assets/images/works_img/ui/busness/6.png')"
         )
       p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .color-scheme-box
       .title
-        .justify-text
-          span 配
-          span 色
-          .title-under-line
+        span 配
+        span 色
+        .title-under-line
       img.circle(
           :src="require('@/assets/images/works_img/ui/busness/7.png')"
         )
@@ -106,12 +103,11 @@
             )
     .icon-style
       .title
-        .justify-text
-          span I
-          span C
-          span O
-          span N
-          .title-under-line
+        span I
+        span C
+        span O
+        span N
+        .title-under-line
       el-row(
         type="flex"
         justify="center"
@@ -218,20 +214,19 @@ $carouselLeft: 20%
 #busness
   .title
     width: 30%
-    .justify-text
-      display: flex
-      flex-flow: row nowrap
-      justify-content: space-around
-      position: relative
-      span
-        font-size: 36px
-        margin-bottom: 20px
-      .title-under-line
-        position: absolute
-        bottom: 0px
-        width: 100%
-        height: 2px
-        background-color: $focusColor
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-around
+    position: relative
+    span
+      font-size: 36px
+      margin-bottom: 20px
+    .title-under-line
+      position: absolute
+      bottom: 0px
+      width: 100%
+      height: 2px
+      background-color: $focusColor
   p
     width: 60%
     margin: 10vh auto
@@ -390,6 +385,9 @@ $carouselLeft: 20%
 @media screen and (max-width: 450px)
   @media (orientation: portrait) // 直視 , landscape 橫式
     #busness
+      .title
+        span
+          font-size: 24px
       .point
         flex-flow: column
         align-items: center
