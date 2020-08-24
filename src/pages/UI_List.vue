@@ -41,7 +41,12 @@ export default {
             name: 'BUSNESS',
             src: '0',
             toPath: 'ui/busness'
-          }
+          },
+          {
+            name: 'MOVIE-STORE',
+            src: '1',
+            toPath: 'ui/movie_store'
+          },
         ],
       },
       contentSize: {

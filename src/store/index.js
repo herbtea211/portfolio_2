@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // 在這裡把所有作品 import, 組成一個array, 改變currentWork
 import busness from '../components/works_compoments/ui/Busness.vue'
+import movieStore from '../components/works_compoments/ui/MovieStore.vue'
+
 import center from '../components/works_compoments/gripgic/Center.vue'
 import coffeePlus from '../components/works_compoments/gripgic/Coffee_Plus.vue'
 import lu from '../components/works_compoments/gripgic/Lu.vue'
@@ -22,7 +24,11 @@ export default new Vuex.Store({
            {
              compomentName: 'busness',
              compoment: busness
-           }
+           },
+           {
+            compomentName: 'movie_store',
+            compoment: movieStore
+          }
          ],
          griphic: [
           {

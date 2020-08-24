@@ -46,6 +46,9 @@ export default {
   overflow: hidden
   .workCon
     background-color: #f6f6ff
+  .workCon#movie-store
+      background-color: #141516
+
    
 
 // @media screen and (max-width: 1400px)

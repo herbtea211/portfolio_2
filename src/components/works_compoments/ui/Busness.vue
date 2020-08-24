@@ -170,6 +170,8 @@ export default {
 
 <style lang="sass">
 
+@import '../../../assets/styles/var'
+
 $focusColor: #e39e44
 $carouselWidth: 300px
 $carouselWidthMoble: 250px
@@ -226,11 +228,7 @@ $carouselLeft: 20%
       height: 2px
       background-color: $focusColor
   p
-    width: 60%
-    margin: 10vh auto
-    font-size: 18px
-    letter-spacing: 3px
-    line-height: 36px
+    @include pStyle(60%)
   .Introduction
     display: flex
     flex-flow: column nowrap
