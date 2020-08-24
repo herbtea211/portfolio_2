@@ -7,10 +7,10 @@
       img(
         :src="require('@/assets/images/works_img/ui/busness/0.png')"
       )
-      .title
-        span 簡
-        span 介
-        .title-under-line
+      pageShareTitle(
+        spanContent="簡介"
+        lineColor = "#e39e44"
+        )
       p 這是一個為了線上開店平台所開發的APP原始版型,平台的主要客戶90%以上是零售業<br>基於這兩個前提這次改版有幾個重點:
     .point
       el-carousel(
@@ -53,21 +53,19 @@
         h2 可以輕鬆應付各種客戶需求的UI
         p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .view-style
-      .title
-        span 視
-        span 覺
-        span 風
-        span 格
-        .title-under-line
+      pageShareTitle(
+        spanContent="視覺風格"
+        lineColor = "#e39e44"
+        )
       img(
           :src="require('@/assets/images/works_img/ui/busness/6.png')"
         )
       p 開發一個線上開店的APP,最難克服的點就是”客戶端的需求可能性非常非常多”要如何一次做到位,讓各式各樣的客戶可以輕鬆開店,並且在操作過程中感到舒適,方便,效率就是”好產品”與”不良品”的差別
     .color-scheme-box
-      .title
-        span 配
-        span 色
-        .title-under-line
+      pageShareTitle(
+        spanContent="配色"
+        lineColor = "#e39e44"
+        )
       img.circle(
           :src="require('@/assets/images/works_img/ui/busness/7.png')"
         )
@@ -102,12 +100,10 @@
               :src="require('@/assets/images/works_img/ui/busness/12.png')"
             )
     .icon-style
-      .title
-        span I
-        span C
-        span O
-        span N
-        .title-under-line
+      pageShareTitle(
+        spanContent="ICON"
+        lineColor = "#e39e44"
+        )
       el-row(
         type="flex"
         justify="center"
@@ -138,11 +134,13 @@
 
 <script>
 
+import pageShareTitle from '../../../components/PageShareTitle'
+
 
 export default {
   name: 'busness',
     components: {
-      
+      pageShareTitle
     },
     data () {
     return {
