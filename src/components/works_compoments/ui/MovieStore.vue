@@ -10,16 +10,26 @@
         lineColor = "#2bdeb6"
       )
       p 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器幾兩中。
-    .view-box
+    .order-way
+      pageShareTitle(
+        spanContent="訂位方式"
+        lineColor = "#2bdeb6"
+      )
+      p 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器幾兩中。
+
+    .view-box(
+      v-for="(item, index) in copyWritingConfig"
+      :key="index"
+    )
       .content-box
         .img-box
           img(
-            :src="require('@/assets/images/works_img/ui/movie_store/1.png')"
+            :src="require(`@/assets/images/works_img/ui/movie_store/${item.src}.png`)"
           )
         .text-box
-          h2 品書比國起遊起
+          h2 {{item.title}}
           .p-box
-            p 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成…
+            p {{item.copyWriting}}
             .line
             .BG-Block
     //- .view-box
@@ -44,7 +54,13 @@ export default {
     },
     data () {
     return {
-
+      copyWritingConfig: [
+        {
+          src: '1',
+          title: '簡介',
+          copyWriting: '品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成…'
+        }
+      ]
     }
   },
   computed: {
@@ -77,10 +93,16 @@ $focusColor: #2bdeb6
     padding: 10vh 0vw
     img
       width: 60%
+  p
+    @include pStyle(60%)
+    margin: 50px auto
   .introduction
-    p
-      @include pStyle(60%)
-      margin: 50px auto
+  .order-way
+    background-color: #1d1d1d
+    padding: 20px 0px 20px 0px
+    // p
+    //   @include pStyle(60%)
+    //   margin: 50px auto
   .view-box
     position: relative
     width: 100%
@@ -104,6 +126,7 @@ $focusColor: #2bdeb6
           padding-top: 10px
           p
             margin: 0px
+            width: 80%
           .line
             width: 175%
             height: 2px
