@@ -3,9 +3,6 @@
     .layout(ref="el_layout")
       img.imgBox(src="@/assets/images/works_img/ui/scratch_card/new_bg_470x846.png", ref="el_img")
       .main
-        .header
-          img.img-logo(src="@/assets/images/works_img/ui/scratch_card/logo.png")
-          img.img-title(src="@/assets/images/works_img/ui/scratch_card/title.png")
         scratchCardBody(
           :winIsOnresize="winOnresize"
           :setOnStartStatus="setOnStart"
@@ -14,9 +11,10 @@
           :setAlertStatus="setAlert"
           )
         .footer
-          .right-box(@click="start")
-            img.btn-bg(src="@/assets/images/works_img/ui/scratch_card/btn_start.png")
-            img.btn-text(src="@/assets/images/works_img/ui/scratch_card/font_start.png")
+          el-button(
+            type="danger"
+            @click="start"
+          ) 點我開始刮刮卡遊戲
         .alert(v-show="alert.show")
           .alert-box
             img.alert-bg(src="@/assets/images/works_img/ui/scratch_card/alert_win.png")
@@ -140,97 +138,11 @@ export default {
         left: 0
         right: 0
         bottom: 0
-        .header
-          .img-logo
-            width: 15%
-            position: absolute
-            left: 10px
-            top: 10px
-          .img-title
-            position: absolute
-            left: 0px
-            right: 0px
-            top: 0px
-            width: 100%
         .footer
-          display: flex
-          flex-direction: row
-          flex-wrap: nowrap
-          position: absolute
-          bottom: 0
-          left: 0
-          right: 0
-          color: #ffffff
-          margin: 10px
-          .left-box
-            flex: 1 1 10px
-            .coupon-box
-              position: relative
-              margin-bottom: 10px
-              display: flex
-              flex-direction: row
-              flex-wrap: nowrap
-              align-items: center
-              font-size: 16px
-              img
-                width: 100%
-              .coupon
-                position: absolute
-                left: 5%
-                color: #000000
-            .count-box
-              position: relative
-              display: flex
-              flex-direction: row
-              flex-wrap: nowrap
-              align-items: center
-              img
-                width: 100%
-              .count
-                position: absolute
-                right: 5%
-                text-align: center
-                font-weight: bolder
-                font-size: 40px
-                width: 25%
-          .right-box
-            flex: 1 1 10px
-            position: relative
-            display: flex
-            flex-direction: row
-            flex-wrap: nowrap
-            justify-content: center
-            align-items: center
-            .btn-bg
-              position: absolute
-              width: 67%
-            .btn-text
-              position: absolute
-              width: 40%
-          // @media(max-width:812px)
-          //   @media(orientation:landscape)
-          //     margin: 3px
-          //     .left-box
-          //       flex: 1.6 1 10px
-          //       .coupon-box
-          //         .coupon
-          //           font-size: 10px
-          // @media(max-width:1200px)
-          //   @media(orientation:landscape)
-          //     .left-box
-          //       .count-box
-          //         .count
-          //           font-size: 18px
-          // @media(max-width:576px)
-          //   .left-box
-          //       .count-box
-          //         .count
-          //           font-size: 20px
-          //   @media(orientation:landscape)
-          //     .left-box
-          //       .count-box
-          //         .count
-          //           font-size: 10px
+          text-align: center
+          .el-button--danger
+            background-color: #d61e0d
+            margin-top: 50px
         .alert
           background-color: #464646bf
           position: absolute
@@ -261,34 +173,11 @@ export default {
               background: -webkit-linear-gradient(#f7f6e2, #c1a413)
               -webkit-background-clip: text
               -webkit-text-fill-color: transparent
-              font-size: 36px
+              font-size: 20px
               font-weight: bolder
             .confirm-btn
               position: absolute
               bottom: -10%
               width: 36%
-        // @media(max-width:1400px)
-        //   .alert
-        //     .alert-box
-        //       .message
-        //         font-size: 36px
-        //   @media(orientation:portrait)
-        //     .alert
-        //       .alert-box
-        //         .message
-        //           font-size: 40px
-        // @media(max-width:900px)
-        //   @media(orientation:portrait)
-        //     .alert
-        //       .alert-box
-        //         .message
-        //           font-size: 32px
-        //   @media(orientation:landscape)
-        //     .alert
-        //       .alert-box
-        //         .message
-        //           font-size: 12px
-
-            
 
 </style>
