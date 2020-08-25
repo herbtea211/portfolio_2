@@ -47,6 +47,11 @@ export default {
             src: '1',
             toPath: 'ui/movie_store'
           },
+           {
+            name: 'SCRATCH-CARD',
+            src: '2',
+            toPath: 'ui/scratch_card'
+          },
         ],
       },
       contentSize: {
