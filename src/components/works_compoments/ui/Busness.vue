@@ -250,6 +250,7 @@ $carouselLeft: 20%
         height: $carouselWidth * 1.4
         img
           width: 100%
+          border-radius: 20px
       .el-carousel__indicators
         display: none
     .text-box
