@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import busness from '../components/works_compoments/ui/Busness.vue'
 import movieStore from '../components/works_compoments/ui/MovieStore.vue'
 import scratchCard from '../components/works_compoments/ui/Scratch_Card.vue'
+import game from '../components/works_compoments/ui/Game.vue'
 
 import center from '../components/works_compoments/gripgic/Center.vue'
 import coffeePlus from '../components/works_compoments/gripgic/Coffee_Plus.vue'
@@ -33,7 +34,11 @@ export default new Vuex.Store({
            {
              compomentName: 'scratch_card',
              compoment: scratchCard
-           }
+           },
+           {
+            compomentName: 'game',
+            compoment: game
+          }
          ],
          griphic: [
           {

@@ -52,6 +52,11 @@ export default {
             src: '2',
             toPath: 'ui/scratch_card'
           },
+           {
+            name: 'GAME',
+            src: '3',
+            toPath: 'ui/game'
+          }
         ],
       },
       contentSize: {

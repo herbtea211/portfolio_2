@@ -15,6 +15,8 @@ var _MovieStore = _interopRequireDefault(require("../components/works_compoments
 
 var _Scratch_Card = _interopRequireDefault(require("../components/works_compoments/ui/Scratch_Card.vue"));
 
+var _Game = _interopRequireDefault(require("../components/works_compoments/ui/Game.vue"));
+
 var _Center = _interopRequireDefault(require("../components/works_compoments/gripgic/Center.vue"));
 
 var _Coffee_Plus = _interopRequireDefault(require("../components/works_compoments/gripgic/Coffee_Plus.vue"));
@@ -50,6 +52,9 @@ var _default = new _vuex["default"].Store({
       }, {
         compomentName: 'scratch_card',
         compoment: _Scratch_Card["default"]
+      }, {
+        compomentName: 'game',
+        compoment: _Game["default"]
       }],
       griphic: [{
         compomentName: 'pu_e',
