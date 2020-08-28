@@ -11,21 +11,27 @@
         h2 簡介
         h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
     .main
-      el-row(
+      el-row.one-el-row(
         type="flex"
-        justify="end"
+        justify="space-between"
       )
-        el-col(:sm="16")
+        el-col.m-el-col(
+          :xs="24"
+          :sm="8"
+          )
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/2.png')"
+            )
+        el-col(
+          :xs="24"
+          :sm="16"
+          )
           img(
             :src="require('@/assets/images/works_img/griphic/miss_Q/1.png')"
             )
           h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
-      el-row.content-two
+      el-row.two-el-row
         el-col(:sm="12")
-          img(
-            :src="require('@/assets/images/works_img/griphic/miss_Q/2.png')"
-            ref="el_img_two"
-            )
           h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
       el-row
         el-col(:sm="12")
@@ -90,8 +96,6 @@ export default {
           elStartChildren[i].style.height = `${elTextBoxH * 1.8}px`
         }
       }
-      console.log('11')
-      this.$refs.el_img_two.style.bottom = `${this.$refs.el_img_two.clientHeight}px`
 
     }
   },
@@ -104,6 +108,7 @@ export default {
 <style lang="sass">
 
 $shareSkew: 3deg
+$m-el-col-top: 20px
 
 @mixin skew($deg)
   -moz-transform: skewY($deg)
@@ -150,12 +155,14 @@ $shareSkew: 3deg
       width: 150px
     h4
       margin-top: 20px
-    .content-two
-      margin-top: 50px
-      .el-col
-        position: relative
+    .m-el-col
+      display: flex
+      align-items: flex-end
       img
-        position: absolute
+        position: relative
+        top: $m-el-col-top
+    .two-el-row
+      margin-top: $m-el-col-top
 
 @media screen and (max-width: 1400px)
   #miss-q
@@ -183,6 +190,10 @@ $shareSkew: 3deg
           @include skew(-10deg)
         .text-box
           width: 90%
+      .main
+        .el-row.one-el-row.el-row--flex
+          display: flex
+          flex-direction: column-reverse
 
   
 </style>
