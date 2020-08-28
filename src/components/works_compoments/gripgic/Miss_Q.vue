@@ -9,8 +9,7 @@
       .bg-bottom
       .text-box
         h2 簡介
-        h4 業主是兩個女生一起經營鬆餅跟飲品,地點在墾丁南灣,店面是很純粹的工業風,這種風格表示會有很多原木色&水泥灰&鑄鐵色,logo用單純的黑色線條配合工業風,再加上一點俏皮可愛的感覺,另外業主還有要求表達出兩個人同心協力一起努力的感覺
-        <br><br>整體來說都是圓潤的線條比較柔和,具有女性特質,事實上線條的邊都是不規則的,可以增加一點粗獷感
+        h4 業主是兩個女生一起經營鬆餅跟飲品,地點在墾丁南灣,店面是很純粹的工業風,這種風格表示會有很多原木色&水泥灰&鑄鐵色,logo用單純的黑色線條配合工業風,再加上一點俏皮可愛的感覺,另外業主還有要求表達出兩個人同心協力一起努力的感,整體來說都是圓潤的線條比較柔和,具有女性特質,事實上線條的邊都是不規則的,可以增加一點粗獷感
     .main
       el-row.one-el-row(
         type="flex"
@@ -30,20 +29,20 @@
           img(
             :src="require('@/assets/images/works_img/griphic/miss_Q/1.png')"
             )
-          h4 Q字的尾巴翹起來我是覺得挺可愛的<br><br>勾勒出一個飲料杯的形狀可以明確表達主要商品就是飲品<br><br>鬆餅的話只有在下午茶時段提供,所以強調店家商品定位這件事非常重要
+          h4 Q字的尾巴翹起來我是覺得挺可愛的~~勾勒出一個飲料杯的形狀可以明確表達主要商品就是飲,鬆餅的話只有在下午茶時段提供,所以強調店家商品定位這件事非常重要
       el-row.two-el-row
         el-col(
           :xs="24"
           :sm="12"
           )
-          h4 這裡很明顯就是要強調另一個重點:<br><br>同心協力的感覺<br><br>把 M 這個字變成兩個連再一起的“人”,看起來就想兩個人手牽手走在一起<br>方法簡單,但意象清楚也很好理解,又不會破壞 M 的辨識度
+          h4 這裡很明顯就是要強調另一個重點:<br><br>同心協力的感覺,把 M 這個字變成兩個連再一起的“人”,看起來就想兩個人手牽手走在一起,方法簡單,但意象清楚也很好理解,又不會破壞 M 的辨識度
           el-row.row-in-row
             el-col
               img(
                 :src="require('@/assets/images/works_img/griphic/miss_Q/4.png')"
                 )
             el-col
-              h4 這個是後來追加的招牌,晚上營業時間加長的話就需要一個招牌了～～<br>這種圓形招牌比較小巧,安裝容易,成本低,圖片用卡典成形之後貼上去就好<br>比較需要注意是貼的過程對位置要很小心！！
+              h4 這個是後來追加的招牌,晚上營業時間加長的話就需要一個招牌了～～這種圓形招牌比較小巧,安裝容易,成本低,圖片用卡典成形之後貼上去就好,比較需要注意是貼的過程對位置要很小心！！
         el-col.padding-left(
           :xs="24"
           :sm="12"
@@ -178,6 +177,8 @@ $m-el-col-top: 20px
       margin-top: $m-el-col-top
       display: flex
       align-items: center
+      h4
+        width: 80%
       .padding-left
         padding-left: 20px
       .row-in-row
@@ -187,6 +188,8 @@ $m-el-col-top: 20px
       margin-top: 50px
       img
         width: 25%
+      h4
+        text-align: left
   .bottom-el-row
     margin: 100px 0px
     img
@@ -228,6 +231,8 @@ $m-el-col-top: 20px
           flex-direction: column-reverse
         .two-el-row
           display: block
+          h4
+            width: 100%
           .padding-left
             padding-left: unset
             padding-top: 20px
