@@ -31,32 +31,41 @@
             )
           h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
       el-row.two-el-row
-        el-col(:sm="12")
+        el-col(
+          :xs="24"
+          :sm="12"
+          )
           h4 品書？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
-        el-col(:sm="12")
-          
-      el-row
-        el-col(:sm="12")
-          img(
-            :src="require('@/assets/images/works_img/griphic/miss_Q/4.png')"
-            )
-          h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
-        el-col(:sm="12")
+          el-row.row-in-row
+            el-col
+              img(
+                :src="require('@/assets/images/works_img/griphic/miss_Q/4.png')"
+                )
+            el-col
+              h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+        el-col.padding-left(
+          :xs="24"
+          :sm="12"
+          )
           img(
             :src="require('@/assets/images/works_img/griphic/miss_Q/3.png')"
             )
           h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
-        el-row            
-          el-col
-            img(
-              :src="require('@/assets/images/works_img/griphic/miss_Q/5.png')"
-              )
-            img(
-              :src="require('@/assets/images/works_img/griphic/miss_Q/6.png')"
-              )
-          el-col
-            h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
-
+      el-row.card-el-row
+        el-col
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/5.png')"
+            )
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/6.png')"
+            )
+        el-col
+          h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+    el-row.bottom-el-row
+      el-col
+        img(
+          :src="require('@/assets/images/works_img/griphic/miss_Q/7.png')"
+          )
 
 </template>
 
@@ -165,6 +174,21 @@ $m-el-col-top: 20px
         top: $m-el-col-top
     .two-el-row
       margin-top: $m-el-col-top
+      display: flex
+      align-items: center
+      .padding-left
+        padding-left: 20px
+      .row-in-row
+        margin-top: 20px
+    .card-el-row
+      text-align: center
+      margin-top: 50px
+      img
+        width: 25%
+  .bottom-el-row
+    margin: 100px 0px
+    img
+      width: 100%
 
 @media screen and (max-width: 1400px)
   #miss-q
@@ -175,6 +199,10 @@ $m-el-col-top: 20px
     .start
       .text-box
         width: 60%
+    .main
+      .card-el-row
+        img
+          width: 35%
 
 @media screen and (max-width: 450px)
   @media (orientation: portrait) // 直視 , landscape 橫式
@@ -196,6 +224,13 @@ $m-el-col-top: 20px
         .el-row.one-el-row.el-row--flex
           display: flex
           flex-direction: column-reverse
-
+        .two-el-row
+          display: block
+          .padding-left
+            padding-left: unset
+            padding-top: 20px
+        .card-el-row
+          img
+            width: 50%
   
 </style>
