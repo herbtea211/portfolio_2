@@ -11,8 +11,44 @@
         h2 簡介
         h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
     .main
-        h2 aa
-        h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+      el-row(
+        type="flex"
+        justify="end"
+      )
+        el-col(:sm="16")
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/1.png')"
+            )
+          h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+      el-row.content-two
+        el-col(:sm="12")
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/2.png')"
+            ref="el_img_two"
+            )
+          h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+      el-row
+        el-col(:sm="12")
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/4.png')"
+            )
+          h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+        el-col(:sm="12")
+          img(
+            :src="require('@/assets/images/works_img/griphic/miss_Q/3.png')"
+            )
+          h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+        el-row            
+          el-col
+            img(
+              :src="require('@/assets/images/works_img/griphic/miss_Q/5.png')"
+              )
+            img(
+              :src="require('@/assets/images/works_img/griphic/miss_Q/6.png')"
+              )
+          el-col
+            h4 品書比國起遊起一係麼沒心文有主兩馬給運我性始金？石查其地的高成……足同找些的……朋作國麼年全園無母清來長、麼特這女銷洲告，也對優子上，也所第種岸老每不可育上眼了明父果車。感我一車關法顧目國以快日當的斷是產一。有童而幾金山舉視就老單，自三天小紀的子克國理臉時！呢器
+
 
 </template>
 
@@ -54,6 +90,8 @@ export default {
           elStartChildren[i].style.height = `${elTextBoxH * 1.8}px`
         }
       }
+      console.log('11')
+      this.$refs.el_img_two.style.bottom = `${this.$refs.el_img_two.clientHeight}px`
 
     }
   },
@@ -105,6 +143,19 @@ $shareSkew: 3deg
         width: 100%
       h4
         width: 100%
+  .main
+    width: 80%
+    margin: 50px auto
+    img
+      width: 150px
+    h4
+      margin-top: 20px
+    .content-two
+      margin-top: 50px
+      .el-col
+        position: relative
+      img
+        position: absolute
 
 @media screen and (max-width: 1400px)
   #miss-q
