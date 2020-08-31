@@ -60,20 +60,20 @@ export default {
             toPath: 'griphic/center'
           },
           {
-            name: '博客',
+            name: '鉑喀',
             src: '5',
             toPath: 'griphic/w_m'
           },
-          {
-            name: 'ZETA捷達珠寶',
-            src: '6',
-            toPath: 'griphic/zeta'
-          },
-          {
-            name: '老盧',
-            src: '7',
-            toPath: 'griphic/lu'
-          }
+          // {
+          //   name: 'ZETA捷達珠寶',
+          //   src: '6',
+          //   toPath: 'griphic/zeta'
+          // },
+          // {
+          //   name: '老盧',
+          //   src: '7',
+          //   toPath: 'griphic/lu'
+          // }
         ],
       },
       contentSize: {
