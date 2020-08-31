@@ -42,7 +42,7 @@ export default {
           path: '/workTypeList/ui'
         },
         {
-          p: 'GRIPHIC',
+          p: 'GRAPHIC',
           path: '/workTypeList/griphic'
         },
         // {
