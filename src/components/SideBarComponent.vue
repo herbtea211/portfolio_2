@@ -45,10 +45,10 @@ export default {
           p: 'GRIPHIC',
           path: '/workTypeList/griphic'
         },
-        {
-          p: 'EXPERIENCE',
-          path: '/experience'
-        }
+        // {
+        //   p: 'EXPERIENCE',
+        //   path: '/experience'
+        // }
       ]
     }
   },
@@ -162,6 +162,7 @@ $rotate_-40: rotate(-40deg)
     left: 90%
 
 #sidebar-component
+  z-index: 10000
   position: fixed
   top: 0px
   right: 0px
