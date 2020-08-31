@@ -59,7 +59,6 @@ $right-side-box-img-position-left: 10vw
       top: 20px
       left: 50px
     h4
-      margin-left: 10px
       letter-spacing: 3px
       margin-left: 50px
       text-align: justify
@@ -77,5 +76,52 @@ $right-side-box-img-position-left: 10vw
       position: absolute
       left: -$right-side-box-img-position-left
 
+@media screen and (max-width: 820px)
+  #w_m
+    .right-side-box
+      img
+        height: 150px
+
+  @media (orientation: landscape) // 直視 , landscape 橫式
+    #w_m
+      .left-side-box
+        padding: 20px
+        position: unset
+        display: block
+        width: 100vw - $right-side-box-width - $right-side-box-img-position-left - 5vw
+        .logo
+          position: unset
+          margin-bottom: 20px
+        h4
+          margin-left: 0px
+      .right-side-box
+        img
+          height: 20vw
+
+@media screen and (max-width: 430px)
+  @media (orientation: portrait) // 直視 , landscape 橫式
+    #w_m
+      .left-side-box
+        position: unset
+        display: block
+        width: unset
+        width: 80%
+        margin: 10vh auto
+        .logo
+          position: unset
+          margin-bottom: 20px
+        h4
+          margin-left: 0px
+      .right-side-box
+        position: unset
+        display: block
+        width: unset
+        background-color: unset
+        img
+          height: unset
+          display: block
+          width: 80vw
+          position: unset
+          margin: 0 auto
   
 </style>
