@@ -382,6 +382,8 @@ $carouselLeft: 20%
 @media screen and (max-width: 450px)
   @media (orientation: portrait) // 直視 , landscape 橫式
     #busness
+      p
+        width: 80%
       .title
         span
           font-size: 24px

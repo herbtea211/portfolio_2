@@ -140,6 +140,17 @@ export default {
       .landscape.el-row
         .el-col
           video
-            width: 200px      
+            width: 200px
+
+  @media screen and (max-width: 430px)
+    @media (orientation: portrait) // 直視 , landscape 橫式
+      #game
+        .top-introduction
+          h4,h2
+            width: 80%
+        .el-row
+          .el-col
+            h4
+              width: 80%
 
 </style>

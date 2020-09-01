@@ -144,7 +144,7 @@ export default {
             background-color: #d61e0d
             margin-top: 50px
         .alert
-          background-color: #464646bf
+          // background-color: #464646bf
           position: absolute
           left: 0
           right: 0

@@ -38,7 +38,7 @@ export default {
         title: 'UI是繁忙的城市,每個人都在自己的路上和別人相遇著',
         list: [
           {
-            name: 'BUSNESS',
+            name: 'BUSINESS',
             src: '0',
             toPath: 'ui/busness'
           },
@@ -133,7 +133,7 @@ $finallyBGColor: hsl(0, 0, 50)
     animation: titleBGAnimation 5s
     text-align: center
   .el-row
-    margin: 0 10vw
+    margin: 0 10vw 10vh
     .el-col
       margin-bottom: 10vh
       height: 200px
@@ -157,7 +157,7 @@ $finallyBGColor: hsl(0, 0, 50)
         font-size: 14px
         margin: 10vh auto 10vh
       .el-row
-        margin: 0 10vw
+        margin: 0 10vw 10vh
         .el-col
           margin-bottom: 0vh
   

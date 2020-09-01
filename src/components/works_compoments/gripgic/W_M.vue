@@ -117,6 +117,7 @@ $right-side-box-img-position-left: 10vw
         display: block
         width: unset
         background-color: unset
+        margin-bottom: 10vh
         img
           height: unset
           display: block

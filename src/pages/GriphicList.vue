@@ -151,7 +151,7 @@ $finallyBGColor: hsl(0, 0, 50)
     text-align: center
     font-size: 18px
   .el-row
-    margin: 0 10vw
+    margin: 0 10vw 10vh
     .el-col
       margin-bottom: 10vh
       height: 200px
@@ -175,7 +175,7 @@ $finallyBGColor: hsl(0, 0, 50)
         font-size: 14px
         margin: 10vh auto 10vh
       .el-row
-        margin: 0 10vw
+        margin: 0 10vw 10vh
         .el-col
           margin-bottom: 0vh
   
