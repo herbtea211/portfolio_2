@@ -22,8 +22,12 @@ export default {
     },
   },
   mounted () {
-    
-
+    if(this.$route.name === 'works') {
+      let payload = {
+        url: `${this.$route.params.fromType}/${this.$route.params.currentBork}`
+        }
+        this.$store.dispatch('setCurrentWork', payload)
+    }
   },
   methods: {
     test(count) {
