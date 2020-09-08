@@ -67,11 +67,11 @@ export default {
             src: '5',
             toPath: 'ui/web_menu'
           },
-          //  {
-          //   name: 'SHANG_QING',
-          //   src: '6',
-          //   toPath: 'ui/shang_qing_go'
-          // }
+           {
+            name: 'SHANG_QING',
+            src: '6',
+            toPath: 'ui/shang_qing_go'
+          }
         ],
       },
       contentSize: {
