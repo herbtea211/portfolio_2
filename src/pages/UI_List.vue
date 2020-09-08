@@ -56,7 +56,22 @@ export default {
             name: 'GAME',
             src: '3',
             toPath: 'ui/game'
-          }
+          },
+          {
+            name: 'KIOSK',
+            src: '4',
+            toPath: 'ui/kiosk'
+          },
+          {
+            name: 'WEB_MENU',
+            src: '5',
+            toPath: 'ui/web_menu'
+          },
+          //  {
+          //   name: 'SHANG_QING',
+          //   src: '6',
+          //   toPath: 'ui/shang_qing_go'
+          // }
         ],
       },
       contentSize: {

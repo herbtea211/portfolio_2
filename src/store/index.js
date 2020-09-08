@@ -5,15 +5,18 @@ import busness from '../components/works_compoments/ui/Busness.vue'
 import movieStore from '../components/works_compoments/ui/MovieStore.vue'
 import scratchCard from '../components/works_compoments/ui/Scratch_Card.vue'
 import game from '../components/works_compoments/ui/Game.vue'
+import kiosk from '../components/works_compoments/ui/Kiosk.vue'
+import webMenu from '../components/works_compoments/ui/Web_Menu.vue'
+import shangQingGo from '../components/works_compoments/ui/Shang_Qing_Go.vue'
 
 import center from '../components/works_compoments/gripgic/Center.vue'
 import coffeePlus from '../components/works_compoments/gripgic/Coffee_Plus.vue'
-import lu from '../components/works_compoments/gripgic/Lu.vue'
 import missQ from '../components/works_compoments/gripgic/Miss_Q.vue'
 import monk from '../components/works_compoments/gripgic/Monk.vue'
 import puE from '../components/works_compoments/gripgic/Pu_e.vue'
 import WM from '../components/works_compoments/gripgic/W_M.vue'
-import zeta from '../components/works_compoments/gripgic/Zeta.vue'
+// import lu from '../components/works_compoments/gripgic/Lu.vue'
+// import zeta from '../components/works_compoments/gripgic/Zeta.vue'
  
 Vue.use(Vuex)
  
@@ -36,9 +39,21 @@ export default new Vuex.Store({
              compoment: scratchCard
            },
            {
-            compomentName: 'game',
-            compoment: game
-          }
+              compomentName: 'game',
+              compoment: game
+            },
+            {
+              compomentName: 'kiosk',
+              compoment: kiosk
+            },
+            {
+              compomentName: 'web_menu',
+              compoment: webMenu
+            },
+            {
+              compomentName: 'shang_qing_go',
+              compoment: shangQingGo
+            }
          ],
          griphic: [
           {
@@ -65,14 +80,14 @@ export default new Vuex.Store({
             compomentName: 'w_m',
             compoment: WM
           },
-          {
-            compomentName: 'zeta',
-            compoment: zeta
-          },
-          {
-            compomentName: 'lu',
-            compoment: lu
-          },
+          // {
+          //   compomentName: 'zeta',
+          //   compoment: zeta
+          // },
+          // {
+          //   compomentName: 'lu',
+          //   compoment: lu
+          // },
          ]
        }
      },
