@@ -5,11 +5,6 @@
         .content
             .control-box
                 h1 col-6
-                el-input(
-                    v-model="test"
-                    ref="bankSavingsInputTest"
-                    :disabled="bankSavingsDisabled"
-                    )
             .items-box
                 h1 col-18
         footer
@@ -18,15 +13,11 @@
             .edit-box
                 el-input(
                     v-model="bankSavings"
-                    :disabled="bankSavingsDisabled"
                     ref="bankSavingsInput"
                     placeholder="0"
-                    type="number"
-                    )
-                i(
-                    class="el-icon-edit"
-                    @click="focusInBankSavingsInput"
-                    )
+                    @focus="bankSavingsIsFocus(true)"
+                    @blur="bankSavingsIsFocus(false)"
+                )
 </template>
 
 <script>
@@ -39,23 +30,40 @@ export default {
     },
     data () {
     return {
-     test: '',
-     bankSavings: '',
-     bankSavingsDisabled: true 
+        bankSavings: '',
+        bankSavingsDisabled: true,
+        bankSavingsInputIsFocus: false
     }
   },
   computed: {
     
   },
   mounted () {
+      
 },
   methods: {
-      focusInBankSavingsInput() {
-        this.bankSavingsDisabled = false
-        setTimeout(() => {
-            this.$refs.bankSavingsInput.focus()
-        }, 5)
-      }
+      bankSavingsIsFocus(IsFocus) {
+          if(IsFocus) {
+              document.body.onkeydown = this.keyDown
+          } else {
+              this.checkBankSavingsText()
+          }
+          
+      },
+      checkBankSavingsText() {
+          if(isNaN(this.bankSavings)) {
+              // 不是數字
+          } else {
+
+          }
+      },
+      keyDown(e) {
+          if(e.key === 'Enter') {
+              if(this.bankSavingsInputIsFocus) {
+                  this.checkBankSavingsText()
+              }
+            }
+        }
   },
   watch: {
 
