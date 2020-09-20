@@ -71,6 +71,11 @@ export default {
             name: 'SHANG_QING',
             src: '6',
             toPath: 'ui/shang_qing_go'
+          },
+          {
+            name: 'BOOKKEEPING',
+            src: '7',
+            toPath: 'ui/bookkeeping'
           }
         ],
       },

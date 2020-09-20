@@ -8,6 +8,7 @@ import game from '../components/works_compoments/ui/Game.vue'
 import kiosk from '../components/works_compoments/ui/Kiosk.vue'
 import webMenu from '../components/works_compoments/ui/Web_Menu.vue'
 import shangQingGo from '../components/works_compoments/ui/Shang_Qing_Go.vue'
+import bookkeeping from '../components/works_compoments/ui/Bookkeeping.vue'
 
 import center from '../components/works_compoments/gripgic/Center.vue'
 import coffeePlus from '../components/works_compoments/gripgic/Coffee_Plus.vue'
@@ -53,6 +54,10 @@ export default new Vuex.Store({
             {
               compomentName: 'shang_qing_go',
               compoment: shangQingGo
+            },
+            {
+              compomentName: 'bookkeeping',
+              compoment: bookkeeping
             }
          ],
          griphic: [
