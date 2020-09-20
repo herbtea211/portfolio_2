@@ -5,11 +5,28 @@
         .content
             .control-box
                 h1 col-6
+                el-input(
+                    v-model="test"
+                    ref="bankSavingsInputTest"
+                    :disabled="bankSavingsDisabled"
+                    )
             .items-box
                 h1 col-18
         footer
-            h1 footer
-
+            .text-box
+                span 銀行存款
+            .edit-box
+                el-input(
+                    v-model="bankSavings"
+                    :disabled="bankSavingsDisabled"
+                    ref="bankSavingsInput"
+                    placeholder="0"
+                    type="number"
+                    )
+                i(
+                    class="el-icon-edit"
+                    @click="focusInBankSavingsInput"
+                    )
 </template>
 
 <script>
@@ -22,7 +39,9 @@ export default {
     },
     data () {
     return {
-     
+     test: '',
+     bankSavings: '',
+     bankSavingsDisabled: true 
     }
   },
   computed: {
@@ -31,7 +50,12 @@ export default {
   mounted () {
 },
   methods: {
-
+      focusInBankSavingsInput() {
+        this.bankSavingsDisabled = false
+        setTimeout(() => {
+            this.$refs.bankSavingsInput.focus()
+        }, 5)
+      }
   },
   watch: {
 
@@ -45,7 +69,7 @@ $mainColor: #48d7de
 $BGColor: #171d24
 $mainBGColor: #121a2d
 $headerH: 8vh
-$footerH: 100px
+$footerH: 70px
 $btn-BoxH-In-Por: 100px
 
 @import '../../../assets/styles/var'
@@ -79,7 +103,27 @@ $btn-BoxH-In-Por: 100px
                 flex: 4 1 100px
         footer
             flex: 1 1 $footerH
-            background-color: #2c3544
+            display: flex
+            font-size: 20px
+            .text-box
+                display: flex
+                justify-content: flex-end
+                align-items: center
+                flex: 1 1 10px
+                span
+            .edit-box
+                display: flex
+                align-items: center
+                justify-content: space-between
+                flex: 3 1 10px
+                padding: 0px 20px
+                .el-input__inner
+                    background-color: $BGColor
+                    border: 1px solid $BGColor
+                    height: unset
+                    line-height: unset
+                    font-size: 36px
+                i
 
 @media screen and (max-width: 1400px)
     #bookkeeping
@@ -106,5 +150,6 @@ $btn-BoxH-In-Por: 100px
                     .items-box
                         flex: 100 1 10px
                 footer
+                    flex-flow: column nowrap
 
 </style>
