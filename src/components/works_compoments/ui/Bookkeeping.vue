@@ -4,7 +4,14 @@
     .real-BK-layout
         .content
             .control-box
-                h1 col-6
+                .btn-box
+                    .control-btn(v-for="(item, index) in controlBoxConfig.btnConfig" :key="index")
+                        h2 {{item.title}}
+                        h1 {{item.balance}}
+                    .moveAdd-box
+                .income
+                    span {{controlBoxConfig.incomeConfig.balance}}
+                    span {{controlBoxConfig.incomeConfig.title}}
             .items-box
                 h1 col-18
         footer
@@ -13,10 +20,7 @@
             .edit-box
                 el-input(
                     v-model="bankSavings"
-                    ref="bankSavingsInput"
                     placeholder="0"
-                    @focus="bankSavingsIsFocus(true)"
-                    @blur="bankSavingsIsFocus(false)"
                 )
 </template>
 
@@ -31,8 +35,22 @@ export default {
     data () {
     return {
         bankSavings: '',
-        bankSavingsDisabled: true,
-        bankSavingsInputIsFocus: false
+        controlBoxConfig:{
+            incomeConfig: {
+                title: '可用餘額',
+                balance: 0
+            },
+            btnConfig: [
+                {
+                    title: '收入',
+                    balance: 1200
+                },
+                {
+                    title: '支出',
+                    balance: 2100
+                }
+            ]
+        }
     }
   },
   computed: {
@@ -42,28 +60,7 @@ export default {
       
 },
   methods: {
-      bankSavingsIsFocus(IsFocus) {
-          if(IsFocus) {
-              document.body.onkeydown = this.keyDown
-          } else {
-              this.checkBankSavingsText()
-          }
-          
-      },
-      checkBankSavingsText() {
-          if(isNaN(this.bankSavings)) {
-              // 不是數字
-          } else {
 
-          }
-      },
-      keyDown(e) {
-          if(e.key === 'Enter') {
-              if(this.bankSavingsInputIsFocus) {
-                  this.checkBankSavingsText()
-              }
-            }
-        }
   },
   watch: {
 
@@ -79,6 +76,8 @@ $mainBGColor: #121a2d
 $headerH: 8vh
 $footerH: 70px
 $btn-BoxH-In-Por: 100px
+$btnBalanceMarginLeft: 10px
+$moveAddSize: 80px
 
 @import '../../../assets/styles/var'
 
@@ -106,6 +105,40 @@ $btn-BoxH-In-Por: 100px
             .control-box
                 background-color: #202931
                 flex: 1 1 100px
+                display: flex
+                flex-flow: column nowrap
+                .btn-box
+                    flex: 100 1 10px
+                    display: flex
+                    flex-flow: column nowrap
+                    position: relative
+                    .control-btn
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        position: relative
+                        h2
+                            margin-left: 0px
+                            text-align: center
+                        h1
+                            position: absolute
+                            left: $btnBalanceMarginLeft
+                            bottom: 0
+                    .moveAdd-box
+                        width: $moveAddSize
+                        height: $moveAddSize
+                        background-color: $mainColor
+                        border-radius: 1000px
+                        position: absolute
+                        right: -($moveAddSize / 2)
+                .income
+                    flex: 1 1 80px
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    padding: 0px $btnBalanceMarginLeft
+                    span
+                        font-size: 24px
             .items-box
                 background-color: #2b323a
                 flex: 4 1 100px
@@ -125,13 +158,16 @@ $btn-BoxH-In-Por: 100px
                 justify-content: space-between
                 flex: 3 1 10px
                 padding: 0px 20px
-                .el-input__inner
-                    background-color: $BGColor
-                    border: 1px solid $BGColor
-                    height: unset
-                    line-height: unset
-                    font-size: 36px
-                i
+                .el-input
+                    height: 100%
+                    width: 70%
+                    .el-input__inner
+                        background-color: $BGColor
+                        border: 1px solid $BGColor
+                        height: 100%
+                        width: 100%
+                        line-height: unset
+                        font-size: 36px
 
 @media screen and (max-width: 1400px)
     #bookkeeping
