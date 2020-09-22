@@ -21,10 +21,21 @@
                             span {{item.balance}}
                 //- ul.expendituret-list
                 //-     li(v-for="(item, index) in expendituretList" :key="index")
-                .list-mask-box
-                    .list-mask
-                    .addList-box
-                        h1 addList-box
+                //- .list-mask-box
+                //-     .list-mask
+                //-     .addList-box
+                //-         .input-box
+                //-             el-input(
+                //-                 v-model="addNewItem.name"
+                //-                 placeholder=""
+                //-             )
+                //-             el-input(
+                //-                 v-model="addNewItem.balance"
+                //-                 placeholder=""
+                //-             )
+                //-         .check-box
+                //-             el-button.cancel 取消
+                //-             el-button.check 確定
         footer
             .text-box
                 span 銀行存款
@@ -45,6 +56,10 @@ export default {
     },
     data () {
     return {
+        addNewItem: {
+            name: '',
+            balance: 0
+        },
         bankSavings: '',
         controlBoxConfig:{
             incomeConfig: {
@@ -246,8 +261,8 @@ $moveAddSize: 80px
             height: 100vh - $footerH
             display: flex
             flex-flow: row nowrap
-            div
-                height: 100%
+            // div
+            //     height: 100%
             .control-box
                 background-color: #202931
                 flex: 1 1 100px
@@ -262,6 +277,7 @@ $moveAddSize: 80px
                         display: flex
                         align-items: center
                         justify-content: center
+                        flex: 1 1 10px
                         position: relative
                         h2
                             margin-left: 0px
@@ -271,7 +287,7 @@ $moveAddSize: 80px
                             left: $btnBalanceMarginLeft
                             bottom: 0
                     .moveAdd-box
-                        z-index: 100000
+                        z-index: 9999
                         width: $moveAddSize
                         height: $moveAddSize
                         background-color: $mainColor
@@ -314,18 +330,38 @@ $moveAddSize: 80px
                     bottom: 0
                     top: 0
                     .list-mask
-                        position: absolute
-                        left: 0
-                        right: 0
-                        bottom: 0
-                        top: 0
+                        width: 100%
+                        height: 100vh - $footerH
                         background-color: #1b1b1bc2
                     .addList-box
-                        height: 200px
                         position: absolute
                         left: 0
                         right: 0
                         bottom: 0
+                        .input-box
+                            display: flex
+                            .el-input
+                                height: 60px
+                                .el-input__inner
+                                    background-color: $BGColor
+                                    border: 1px solid $BGColor
+                                    height: 100%
+                                    width: 100%
+                                    line-height: unset
+                                    font-size: 24px
+                        .check-box
+                            display: flex
+                            button
+                                background: #171e25
+                                border: 1px solid #171e25
+                                &:hover
+                                    color: #fff
+                                &:active
+                                    color: #fff
+                            .cancel
+                                width: 20%
+                            .check
+                                width: 80%
         footer
             // flex: 1 1 $footerH
             height: $footerH
