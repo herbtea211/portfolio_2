@@ -13,7 +13,17 @@
                     span {{controlBoxConfig.incomeConfig.balance}}
                     span {{controlBoxConfig.incomeConfig.title}}
             .items-box
-                h1 col-18
+                ul.profit-list
+                    li(v-for="(item, index) in profitList" :key="index")
+                        i(class="el-icon-edit")
+                        .profit-item-box
+                            span.item-name {{item.name}}
+                            span {{item.balance}}
+                //- ul.expendituret-list
+                //-     li(v-for="(item, index) in expendituretList" :key="index")
+                //- .list-mask
+                //- .addList-box
+                //-     h1 addList-box
         footer
             .text-box
                 span 銀行存款
@@ -50,7 +60,28 @@ export default {
                     balance: 2100
                 }
             ]
-        }
+        },
+        profitList: [
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+
+        ],
+        expendituretList: [
+            {
+                name: '停車',
+                balance: 2100
+            },
+            {
+                name: '房租',
+                balance: 200
+            },
+        ]
     }
   },
   computed: {
@@ -125,6 +156,7 @@ $moveAddSize: 80px
                             left: $btnBalanceMarginLeft
                             bottom: 0
                     .moveAdd-box
+                        z-index: 100000
                         width: $moveAddSize
                         height: $moveAddSize
                         background-color: $mainColor
@@ -140,8 +172,38 @@ $moveAddSize: 80px
                     span
                         font-size: 24px
             .items-box
+                // padding-left: $btnBalanceMarginLeft + 10px
                 background-color: #2b323a
                 flex: 4 1 100px
+                overflow: scroll
+                position: relative
+                .profit-list
+                    list-style: none
+                    padding-left: 80px
+                    padding-right: 20px
+                    li
+                        display: flex
+                        justify-content: space-between
+                        padding: 20px 0px
+                        .profit-item-box
+                            flex: 1 1 10px
+                            display: flex
+                            justify-content: space-between
+                            .item-name
+                                margin-left: 50%
+                .list-mask
+                    position: absolute
+                    left: 0
+                    right: 0
+                    bottom: 0
+                    top: 0
+                    background-color: #1b1b1bc2
+                .addList-box
+                    height: 200px
+                    position: absolute
+                    left: 0
+                    right: 0
+                    bottom: 0
         footer
             flex: 1 1 $footerH
             display: flex
