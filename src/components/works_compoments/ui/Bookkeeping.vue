@@ -4,11 +4,20 @@
     .real-BK-layout
         .content
             .control-box
-                .btn-box
-                    .control-btn(v-for="(item, index) in controlBoxConfig.btnConfig" :key="index")
+                .btn-box(
+                    ref="btn_box"
+                    )
+                    .control-btn(
+                        v-for="(item, index) in controlBoxConfig.btnConfig"
+                        @click="clickControlBtn(index)"
+                        :key="item.key"
+                        )
                         h2 {{item.title}}
                         h1 {{item.balance}}
-                    .moveAdd-box
+                    .moveAdd-box(
+                        ref="move_add_box"
+                        )
+                        i(class="el-icon-plus")
                 .income
                     h1 {{controlBoxConfig.incomeConfig.balance}}
                     h4 {{controlBoxConfig.incomeConfig.title}}
@@ -58,6 +67,7 @@ export default {
     },
     data () {
     return {
+        currentDisplayIsTop: false,
         addNewItem: {
             name: '',
             balance: 0
@@ -70,10 +80,12 @@ export default {
             },
             btnConfig: [
                 {
+                    key: 'top',
                     title: '收入',
                     balance: 1200
                 },
                 {
+                    key: 'bottom',
                     title: '支出',
                     balance: 2100
                 }
@@ -219,7 +231,7 @@ export default {
     
   },
   mounted () {
-      
+    this.currentDisplayIsTop = true
 },
   methods: {
       verificationNumber(inputCon) {
@@ -234,10 +246,25 @@ export default {
                 center: true,
             })
         }
-      }
+      },
+      clickControlBtn(index) {
+              if(index === 0) {
+                  this.currentDisplayIsTop = true
+              } else if(index === 1) {
+                  this.currentDisplayIsTop = false
+              }
+          }
   },
   watch: {
-
+      currentDisplayIsTop(current, old) {
+            let btnH = this.$refs.btn_box.children[0].offsetHeight
+            let moveBtnH = this.$refs.move_add_box.offsetHeight
+          if(current) {
+              this.$refs.move_add_box.style.top = `${(btnH - moveBtnH) / 2}px`
+          } else {
+              this.$refs.move_add_box.style.top = `${((btnH - moveBtnH) / 2) + btnH}px`
+          }
+      }
   }
 }
 </script>
@@ -252,7 +279,7 @@ $headerH: 8vh
 $footerH: 80px
 $btn-BoxH-In-Por: 100px
 $btnBalanceMarginLeft: 10px
-$moveAddSize: 80px
+$moveAddBtnSize: 50px
 
 
 @import '../../../assets/styles/var'
@@ -321,12 +348,22 @@ $moveAddSize: 80px
                             font-weight: bold
                     .moveAdd-box
                         z-index: 9999
-                        width: $moveAddSize
-                        height: $moveAddSize
+                        width: $moveAddBtnSize
+                        height: $moveAddBtnSize
                         background-color: $mainColor
                         border-radius: 1000px
                         position: absolute
-                        right: -($moveAddSize / 2)
+                        right: -($moveAddBtnSize / 2)
+                        top: 0px
+                        -moz-transition: top 0.5s
+                        -webkit-transition: top 0.5s
+                        -o-transition: top 0.5s
+                        -ms-transition: top 0.5s
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        color: $BGColor
+                        font-size: $moveAddBtnSize / 2
                 .income
                     flex: 1 1 80px
                     display: flex
@@ -436,6 +473,14 @@ $moveAddSize: 80px
                 height: 15vh
             .real-BK-layout
                 height: 85vh
+                .content
+                    div
+                    .control-box
+                        .btn-box
+                            .control-btn
+                                h2
+                                    font-size: 24px
+                                    line-height: 15vh
                 footer
                     flex: 0 1 50px
             
@@ -449,6 +494,18 @@ $moveAddSize: 80px
                     div
                     .control-box
                         flex: 1 1 $btn-BoxH-In-Por
+                        .btn-box
+                            .control-btn
+                                h2
+                                    font-size: 24px
+                                    line-height: 8vh
+                                h1
+                                    bottom: unset
+                            .moveAdd-box
+                                width: 30px
+                                height: 30px
+                                font-size: 15px
+                                right: 10px
                     .items-box
                         flex: 100 1 10px
                 footer
