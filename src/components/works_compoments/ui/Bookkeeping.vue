@@ -13,35 +13,38 @@
                     span {{controlBoxConfig.incomeConfig.balance}}
                     span {{controlBoxConfig.incomeConfig.title}}
             .items-box
-                ul.profit-list
-                    li(v-for="(item, index) in profitList" :key="index")
-                        i(class="el-icon-edit")
-                        .profit-item-box
-                            span.item-name {{item.name}}
-                            span {{item.balance}}
-                        .list-mask
-                //- ul.expendituret-list
-                //-     li(v-for="(item, index) in expendituretList" :key="index")
-                .list-bottom-box
-                    .input-box
-                        el-input(
-                            v-model="addNewItem.name"
-                            placeholder=""
-                        )
-                        el-input(
-                            v-model="addNewItem.balance"
-                            placeholder=""
-                        )
-                    .check-box
-                        el-button.cancel 取消
-                        el-button.check 確定
+                .scroll-view
+                    ul.profit-list
+                        li(v-for="(item, index) in profitList" :key="index")
+                            i(class="el-icon-edit")
+                            .profit-item-box
+                                span.item-name {{item.name}}
+                                span {{item.balance}}
+                //- .list-bottom-box
+                //-     .list-mask
+                //-     .list-item-edit-box
+                //-         .input-box
+                //-             el-input(
+                //-                 v-model="addNewItem.name"
+                //-                 placeholder=""
+                //-             )
+                //-             el-input(
+                //-                 v-model="addNewItem.balance"
+                //-                 placeholder=""
+                //-             )
+                //-         .check-box
+                //-             el-button.cancel 取消
+                //-             el-button.check 確定
         footer
             .text-box
                 span 銀行存款
-            .edit-box
+            .edit-box(
+                @keyup.enter="verificationNumber(bankSavings)"
+            )
                 el-input(
+                    ref="bankSavingsInput"
                     v-model="bankSavings"
-                    placeholder="0"
+                    @blur="verificationNumber(bankSavings)"
                 )
 </template>
 
@@ -59,7 +62,7 @@ export default {
             name: '',
             balance: 0
         },
-        bankSavings: '',
+        bankSavings: '0',
         controlBoxConfig:{
             incomeConfig: {
                 title: '可用餘額',
@@ -219,7 +222,19 @@ export default {
       
 },
   methods: {
+      verificationNumber(inputCon) {
 
+        let reg = /^(0|[1-9][0-9]*)$/
+
+        if(reg.test(inputCon)) {
+            this.$refs.bankSavingsInput.blur()
+        } else {
+            this.$message({
+                message: '存款金額錯誤',
+                center: true,
+            })
+        }
+      }
   },
   watch: {
 
@@ -232,11 +247,13 @@ export default {
 $mainColor: #48d7de
 $BGColor: #171d24
 $mainBGColor: #121a2d
+$textColor: #989898
 $headerH: 8vh
 $footerH: 80px
 $btn-BoxH-In-Por: 100px
 $btnBalanceMarginLeft: 10px
 $moveAddSize: 80px
+
 
 @import '../../../assets/styles/var'
 
@@ -245,7 +262,20 @@ $moveAddSize: 80px
         background-color: $BGColor
 
 #bookkeeping
+    color: $textColor
     width: 100vw
+    .el-input
+        height: 100%
+        width: 100%
+        .el-input__inner
+            border-radius: 0px
+            background-color: $BGColor
+            border: 1px solid $BGColor
+            height: 100%
+            width: 100%
+            line-height: unset
+            font-size: 36px
+            letter-spacing: 3px
     // overflow: hidden
     h2
         height: $headerH
@@ -257,13 +287,9 @@ $moveAddSize: 80px
         justify-content: space-between
         .content
             background-color: orange
-            // flex: 100 1 10px
-            // height: 100vh - $footerH
             flex: 1 1 10px
             display: flex
             flex-flow: row nowrap
-            // div
-            //     height: 100%
             .control-box
                 background-color: #202931
                 flex: 1 1 100px
@@ -304,101 +330,82 @@ $moveAddSize: 80px
                     span
                         font-size: 24px
             .items-box
-                // padding-left: $btnBalanceMarginLeft + 10px
-                // height: 100vh - $footerH
                 background-color: #2b323a
                 flex: 4 1 100px
-                overflow: scroll
                 position: relative
-                .profit-list
-                    list-style: none
-                    padding-left: 80px
-                    padding-right: 20px
+                .scroll-view
+                    overflow: scroll
                     position: absolute
                     top: 0
                     right: 0
                     left: 0
-                    li
-                        display: flex
-                        justify-content: space-between
-                        .list-mask
-                            position: absolute
-                            top: 0
-                            right: 0
-                            left: 0
-                            bottom: 0
-                            background-color: #000000
-                        .profit-item-box
-                            flex: 1 1 10px
+                    bottom: 0
+                    .profit-list
+                        list-style: none
+                        padding-left: 80px
+                        padding-right: 20px
+                        position: absolute
+                        top: 0
+                        right: 0
+                        left: 0
+                        li
+                            padding: 10px 0px
                             display: flex
                             justify-content: space-between
-                            .item-name
-                                margin-left: 50%
+                            .profit-item-box
+                                flex: 1 1 10px
+                                display: flex
+                                justify-content: space-between
+                                .item-name
+                                    margin-left: 50%
                 .list-bottom-box
-                    background-color: orange
-                    // position: fixed
-                    // width: 100%
-                    // .list-mask
-                    //     width: 100%
-                    //     background-color: #1b1b1bc2
-                    // .addList-box
-                    //     position: absolute
-                    //     left: 0
-                    //     right: 0
-                    //     bottom: 0
-                    //     .input-box
-                    //         display: flex
-                    //         .el-input
-                    //             height: 60px
-                    //             .el-input__inner
-                    //                 background-color: $BGColor
-                    //                 border: 1px solid $BGColor
-                    //                 height: 100%
-                    //                 width: 100%
-                    //                 line-height: unset
-                    //                 font-size: 24px
-                    //     .check-box
-                    //         display: flex
-                    //         button
-                    //             background: #171e25
-                    //             border: 1px solid #171e25
-                    //             &:hover
-                    //                 color: #fff
-                    //             &:active
-                    //                 color: #fff
-                    //         .cancel
-                    //             width: 20%
-                    //         .check
-                    //             width: 80%
+                    background-color: #ffa50036
+                    position: absolute
+                    top: 0
+                    right: 0
+                    left: 0
+                    bottom: 0
+                    .list-mask
+                        position: absolute
+                        top: 0
+                        right: 0
+                        left: 0
+                        bottom: 0
+                        background-color: #000000cf
+                    .list-item-edit-box
+                        position: absolute
+                        right: 0
+                        left: 0
+                        bottom: 0
+                        .check-box
+                            .el-button+.el-button
+                                margin-left: 0px
+                            .el-button
+                                background: $BGColor
+                                border: 1px solid $BGColor
+                                border-radius: 0px
+                            .cancel
+                                width: 30%
+                            .check
+                                width: 70%
         footer
-            background-color: #eaeaea
-            // flex: 1 1 $footerH
-            // height: $footerH
             flex: 0 1 $footerH
             display: flex
             font-size: 20px
             .text-box
                 display: flex
-                justify-content: flex-end
                 align-items: center
-                flex: 1 1 10px
+                flex: 0 1 100px
                 span
+                    margin-left: 10px
             .edit-box
                 display: flex
                 align-items: center
                 justify-content: space-between
-                flex: 3 1 10px
+                flex: 1 1 10px
                 padding: 0px 20px
-                .el-input
-                    height: 100%
-                    width: 70%
-                    .el-input__inner
-                        background-color: $BGColor
-                        border: 1px solid $BGColor
-                        height: 100%
-                        width: 100%
-                        line-height: unset
-                        font-size: 36px
+                .el-input__inner
+                    color: $mainColor
 
 @media screen and (max-width: 1400px)
     #bookkeeping
@@ -436,5 +443,11 @@ $moveAddSize: 80px
                         flex: 100 1 10px
                 footer
                     flex-flow: column nowrap
+                    flex: 0 1 100px
+                    .text-box
+                        flex: 1 1 10px
+                    .edit-box
+                        flex: 1 1 10px
+                        padding: unset
 
 </style>
