@@ -21,9 +21,10 @@
                             span {{item.balance}}
                 //- ul.expendituret-list
                 //-     li(v-for="(item, index) in expendituretList" :key="index")
-                //- .list-mask
-                //- .addList-box
-                //-     h1 addList-box
+                .list-mask-box
+                    .list-mask
+                    .addList-box
+                        h1 addList-box
         footer
             .text-box
                 span 銀行存款
@@ -70,6 +71,119 @@ export default {
                 name: '投資',
                 balance: 200
             },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
+
+            {
+                name: '薪資',
+                balance: 2100
+            },
+            {
+                name: '投資',
+                balance: 200
+            },
 
         ],
         expendituretList: [
@@ -105,7 +219,7 @@ $mainColor: #48d7de
 $BGColor: #171d24
 $mainBGColor: #121a2d
 $headerH: 8vh
-$footerH: 70px
+$footerH: 20vh
 $btn-BoxH-In-Por: 100px
 $btnBalanceMarginLeft: 10px
 $moveAddSize: 80px
@@ -128,7 +242,8 @@ $moveAddSize: 80px
         flex-flow: column nowrap
         justify-content: space-between
         .content
-            flex: 100 1 10px
+            // flex: 100 1 10px
+            height: 100vh - $footerH
             display: flex
             flex-flow: row nowrap
             div
@@ -173,6 +288,7 @@ $moveAddSize: 80px
                         font-size: 24px
             .items-box
                 // padding-left: $btnBalanceMarginLeft + 10px
+                height: 100vh - $footerH
                 background-color: #2b323a
                 flex: 4 1 100px
                 overflow: scroll
@@ -191,21 +307,28 @@ $moveAddSize: 80px
                             justify-content: space-between
                             .item-name
                                 margin-left: 50%
-                .list-mask
-                    position: absolute
+                .list-mask-box
+                    position: sticky
                     left: 0
                     right: 0
                     bottom: 0
                     top: 0
-                    background-color: #1b1b1bc2
-                .addList-box
-                    height: 200px
-                    position: absolute
-                    left: 0
-                    right: 0
-                    bottom: 0
+                    .list-mask
+                        position: absolute
+                        left: 0
+                        right: 0
+                        bottom: 0
+                        top: 0
+                        background-color: #1b1b1bc2
+                    .addList-box
+                        height: 200px
+                        position: absolute
+                        left: 0
+                        right: 0
+                        bottom: 0
         footer
-            flex: 1 1 $footerH
+            // flex: 1 1 $footerH
+            height: $footerH
             display: flex
             font-size: 20px
             .text-box
