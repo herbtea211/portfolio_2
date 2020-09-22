@@ -10,8 +10,8 @@
                         h1 {{item.balance}}
                     .moveAdd-box
                 .income
-                    span {{controlBoxConfig.incomeConfig.balance}}
-                    span {{controlBoxConfig.incomeConfig.title}}
+                    h1 {{controlBoxConfig.incomeConfig.balance}}
+                    h4 {{controlBoxConfig.incomeConfig.title}}
             .items-box
                 .scroll-view
                     ul.profit-list
@@ -246,7 +246,7 @@ export default {
 
 $mainColor: #48d7de
 $BGColor: #171d24
-$mainBGColor: #121a2d
+$mainBGColor: #0f131f
 $textColor: #989898
 $headerH: 8vh
 $footerH: 80px
@@ -286,12 +286,11 @@ $moveAddSize: 80px
         flex-flow: column nowrap
         justify-content: space-between
         .content
-            background-color: orange
             flex: 1 1 10px
             display: flex
             flex-flow: row nowrap
             .control-box
-                background-color: #202931
+                // background-color: #202931
                 flex: 1 1 100px
                 display: flex
                 flex-flow: column nowrap
@@ -301,6 +300,8 @@ $moveAddSize: 80px
                     flex-flow: column nowrap
                     position: relative
                     .control-btn
+                        box-sizing: border-box
+                        border: 2px solid $mainBGColor
                         display: flex
                         align-items: center
                         justify-content: center
@@ -309,10 +310,15 @@ $moveAddSize: 80px
                         h2
                             margin-left: 0px
                             text-align: center
+                            font-size: 50px
+                            letter-spacing: 10px
                         h1
                             position: absolute
                             left: $btnBalanceMarginLeft
                             bottom: 0
+                            letter-spacing: 3px
+                            color: $mainColor
+                            font-weight: bold
                     .moveAdd-box
                         z-index: 9999
                         width: $moveAddSize
@@ -327,10 +333,14 @@ $moveAddSize: 80px
                     align-items: center
                     justify-content: space-between
                     padding: 0px $btnBalanceMarginLeft
-                    span
-                        font-size: 24px
+                    box-sizing: border-box
+                    border: 2px solid $mainBGColor
+                    h1
+                        letter-spacing: 3px
+                        color: $mainColor
+                        font-weight: bold
             .items-box
-                background-color: #2b323a
+                background-color: $mainBGColor
                 flex: 4 1 100px
                 position: relative
                 .scroll-view
