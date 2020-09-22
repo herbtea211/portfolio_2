@@ -19,23 +19,22 @@
                         .profit-item-box
                             span.item-name {{item.name}}
                             span {{item.balance}}
+                        .list-mask
                 //- ul.expendituret-list
                 //-     li(v-for="(item, index) in expendituretList" :key="index")
-                .list-mask-box
-                    .list-mask
-                    .addList-box
-                        .input-box
-                            el-input(
-                                v-model="addNewItem.name"
-                                placeholder=""
-                            )
-                            el-input(
-                                v-model="addNewItem.balance"
-                                placeholder=""
-                            )
-                        .check-box
-                            el-button.cancel 取消
-                            el-button.check 確定
+                .list-bottom-box
+                    .input-box
+                        el-input(
+                            v-model="addNewItem.name"
+                            placeholder=""
+                        )
+                        el-input(
+                            v-model="addNewItem.balance"
+                            placeholder=""
+                        )
+                    .check-box
+                        el-button.cancel 取消
+                        el-button.check 確定
         footer
             .text-box
                 span 銀行存款
@@ -234,7 +233,7 @@ $mainColor: #48d7de
 $BGColor: #171d24
 $mainBGColor: #121a2d
 $headerH: 8vh
-$footerH: 20vh
+$footerH: 80px
 $btn-BoxH-In-Por: 100px
 $btnBalanceMarginLeft: 10px
 $moveAddSize: 80px
@@ -257,8 +256,10 @@ $moveAddSize: 80px
         flex-flow: column nowrap
         justify-content: space-between
         .content
+            background-color: orange
             // flex: 100 1 10px
-            height: 100vh - $footerH
+            // height: 100vh - $footerH
+            flex: 1 1 10px
             display: flex
             flex-flow: row nowrap
             // div
@@ -304,7 +305,7 @@ $moveAddSize: 80px
                         font-size: 24px
             .items-box
                 // padding-left: $btnBalanceMarginLeft + 10px
-                height: 100vh - $footerH
+                // height: 100vh - $footerH
                 background-color: #2b323a
                 flex: 4 1 100px
                 overflow: scroll
@@ -313,58 +314,67 @@ $moveAddSize: 80px
                     list-style: none
                     padding-left: 80px
                     padding-right: 20px
+                    position: absolute
+                    top: 0
+                    right: 0
+                    left: 0
                     li
                         display: flex
                         justify-content: space-between
-                        padding: 20px 0px
+                        .list-mask
+                            position: absolute
+                            top: 0
+                            right: 0
+                            left: 0
+                            bottom: 0
+                            background-color: #000000
                         .profit-item-box
                             flex: 1 1 10px
                             display: flex
                             justify-content: space-between
                             .item-name
                                 margin-left: 50%
-                .list-mask-box
-                    position: sticky
-                    left: 0
-                    right: 0
-                    bottom: 0
-                    top: 0
-                    .list-mask
-                        width: 100%
-                        height: 100vh - $footerH
-                        background-color: #1b1b1bc2
-                    .addList-box
-                        position: absolute
-                        left: 0
-                        right: 0
-                        bottom: 0
-                        .input-box
-                            display: flex
-                            .el-input
-                                height: 60px
-                                .el-input__inner
-                                    background-color: $BGColor
-                                    border: 1px solid $BGColor
-                                    height: 100%
-                                    width: 100%
-                                    line-height: unset
-                                    font-size: 24px
-                        .check-box
-                            display: flex
-                            button
-                                background: #171e25
-                                border: 1px solid #171e25
-                                &:hover
-                                    color: #fff
-                                &:active
-                                    color: #fff
-                            .cancel
-                                width: 20%
-                            .check
-                                width: 80%
+                .list-bottom-box
+                    background-color: orange
+                    // position: fixed
+                    // width: 100%
+                    // .list-mask
+                    //     width: 100%
+                    //     background-color: #1b1b1bc2
+                    // .addList-box
+                    //     position: absolute
+                    //     left: 0
+                    //     right: 0
+                    //     bottom: 0
+                    //     .input-box
+                    //         display: flex
+                    //         .el-input
+                    //             height: 60px
+                    //             .el-input__inner
+                    //                 background-color: $BGColor
+                    //                 border: 1px solid $BGColor
+                    //                 height: 100%
+                    //                 width: 100%
+                    //                 line-height: unset
+                    //                 font-size: 24px
+                    //     .check-box
+                    //         display: flex
+                    //         button
+                    //             background: #171e25
+                    //             border: 1px solid #171e25
+                    //             &:hover
+                    //                 color: #fff
+                    //             &:active
+                    //                 color: #fff
+                    //         .cancel
+                    //             width: 20%
+                    //         .check
+                    //             width: 80%
         footer
+            background-color: #eaeaea
             // flex: 1 1 $footerH
-            height: $footerH
+            // height: $footerH
+            flex: 0 1 $footerH
             display: flex
             font-size: 20px
             .text-box
@@ -409,6 +419,8 @@ $moveAddSize: 80px
                 height: 15vh
             .real-BK-layout
                 height: 85vh
+                footer
+                    flex: 0 1 50px
             
 @media screen and (max-width: 420px)
     @media (orientation: portrait) // 直視 , landscape 橫式
