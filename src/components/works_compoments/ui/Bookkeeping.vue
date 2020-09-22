@@ -21,21 +21,21 @@
                             span {{item.balance}}
                 //- ul.expendituret-list
                 //-     li(v-for="(item, index) in expendituretList" :key="index")
-                //- .list-mask-box
-                //-     .list-mask
-                //-     .addList-box
-                //-         .input-box
-                //-             el-input(
-                //-                 v-model="addNewItem.name"
-                //-                 placeholder=""
-                //-             )
-                //-             el-input(
-                //-                 v-model="addNewItem.balance"
-                //-                 placeholder=""
-                //-             )
-                //-         .check-box
-                //-             el-button.cancel 取消
-                //-             el-button.check 確定
+                .list-mask-box
+                    .list-mask
+                    .addList-box
+                        .input-box
+                            el-input(
+                                v-model="addNewItem.name"
+                                placeholder=""
+                            )
+                            el-input(
+                                v-model="addNewItem.balance"
+                                placeholder=""
+                            )
+                        .check-box
+                            el-button.cancel 取消
+                            el-button.check 確定
         footer
             .text-box
                 span 銀行存款
@@ -247,7 +247,7 @@ $moveAddSize: 80px
 
 #bookkeeping
     width: 100vw
-    overflow: hidden
+    // overflow: hidden
     h2
         height: $headerH
         margin-left: 10px
@@ -402,6 +402,14 @@ $moveAddSize: 80px
                     flex: 4 1 100px
             footer
 
+@media screen and (max-width: 820px)
+    @media (orientation: landscape) //  portrait 直視 , landscape 橫式
+        #bookkeeping
+            h2
+                height: 15vh
+            .real-BK-layout
+                height: 85vh
+            
 @media screen and (max-width: 420px)
     @media (orientation: portrait) // 直視 , landscape 橫式
         #bookkeeping
