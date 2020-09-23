@@ -107,148 +107,26 @@ export default {
                 {
                     key: 'top',
                     title: '收入',
-                    balance: 1200
+                    balance: 0
                 },
                 {
                     key: 'bottom',
                     title: '支出',
-                    balance: 2100
+                    balance: 0
                 }
             ]
         },
         profitList: [
             {
                 name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-
-            {
-                name: '薪資',
-                balance: 2100
-            },
-            {
-                name: '投資',
-                balance: 200
-            },
-
+                balance: 35000
+            }
         ],
         expendituretList: [
             {
-                name: '停車',
-                balance: 2100
-            },
-            {
                 name: '房租',
-                balance: 200
-            },
+                balance: 8000
+            }
         ]
     }
   },
@@ -257,6 +135,9 @@ export default {
   },
   mounted () {
     this.currentDisplayIsTop = true
+
+    this.computedAllBalance()
+    
 },
   methods: {
       verificationNumber(inputCon) {
@@ -370,6 +251,64 @@ export default {
              name: realItem.name,
              balance: realItem.balance
          }
+     },
+     computedAllBalance() {
+
+
+
+         let allProfit = this.profitList.reduce((acc, currentValue) => {
+             return acc + currentValue.balance
+         }, 0)
+
+         let allexpendituret = this.expendituretList.reduce((acc, currentValue) => {
+             return acc + currentValue.balance
+         }, 0)
+
+         this.controlBoxConfig.btnConfig.forEach((item) => {
+             if(item.key === 'top') {
+                 item.balance = allProfit
+             } else if (item.key === 'bottom') {
+                 item.balance = allexpendituret
+             }
+         })
+
+         this.controlBoxConfig.incomeConfig.balance = allProfit - allexpendituret
+
+
+
+         console.log('allProfit', allexpendituret)
+
+        // controlBoxConfig:{
+        //     incomeConfig: {
+        //         title: '可用餘額',
+        //         balance: 0
+        //     },
+        //     btnConfig: [
+        //         {
+        //             key: 'top',
+        //             title: '收入',
+        //             balance: 1200
+        //         },
+        //         {
+        //             key: 'bottom',
+        //             title: '支出',
+        //             balance: 2100
+        //         }
+        //     ]
+        // },
+        // profitList: [
+        //     {
+        //         name: '薪資',
+        //         balance: 35000
+        //     }
+        // ],
+        // expendituretList: [
+        //     {
+        //         name: '房租',
+        //         balance: 8000
+        //     }
+        // ]
+
      }
   },
   watch: {
