@@ -16,6 +16,7 @@
                         h1 {{item.balance}}
                     .moveAdd-box(
                         ref="move_add_box"
+                        @click="openAddItem('moveBtn')"
                         )
                         i(class="el-icon-plus")
                 .income
@@ -23,27 +24,47 @@
                     h4 {{controlBoxConfig.incomeConfig.title}}
             .items-box
                 .scroll-view
-                    ul.profit-list
-                        li(v-for="(item, index) in profitList" :key="index")
+                    ul.profit-list(v-if="currentDisplayIsTop")
+                        li(
+                            v-for="(item, index) in profitList"
+                            :key="index"
+                            )
                             .profit-item-box
                                 span.item-name {{item.name}}
                                 span {{item.balance}}
-                            i(class="el-icon-edit")
-                .list-bottom-box
+                            i(
+                                @click="openAddItem('editBtn', {list: profitList, index: index})"
+                                class="el-icon-edit"
+                                )
+                    ul.profit-list(v-else)
+                        li(
+                            v-for="(item, index) in expendituretList"
+                            :key="index"
+                            )
+                            .profit-item-box
+                                span.item-name {{item.name}}
+                                span {{item.balance}}
+                            i(
+                                @click="openAddItem('editBtn', {list: expendituretList, index: index})"
+                                class="el-icon-edit"
+                                )
+                .list-bottom-box(v-if="openAddItemGroup")
                     .list-mask
                     .list-item-edit-box
                         .input-box
                             el-input(
                                 v-model="addNewItem.name"
-                                placeholder=""
                             )
                             el-input(
                                 v-model="addNewItem.balance"
-                                placeholder=""
                             )
                         .check-box
-                            el-button.cancel 取消
-                            el-button.check 確定
+                            el-button.cancel(
+                                @click="openAddItem('cancel')"
+                            ) 取消
+                            el-button.check(
+                                @click="checkAddListData()"
+                            ) 確定
         footer
             .text-box
                 span 銀行存款
@@ -67,10 +88,14 @@ export default {
     },
     data () {
     return {
+        openAddItemGroup: false,
+        openFrom: '',
         currentDisplayIsTop: false,
         addNewItem: {
-            name: '',
-            balance: 0
+            name: '新增項目',
+            balance: '新增金額',
+            index: null,
+            list: null
         },
         bankSavings: '0',
         controlBoxConfig:{
@@ -248,12 +273,104 @@ export default {
         }
       },
       clickControlBtn(index) {
-              if(index === 0) {
-                  this.currentDisplayIsTop = true
-              } else if(index === 1) {
-                  this.currentDisplayIsTop = false
-              }
-          }
+        if(index === 0) {
+            this.currentDisplayIsTop = true
+        } else if(index === 1) {
+            this.currentDisplayIsTop = false
+        }
+     },
+     openAddItem(from, data) {
+         this.openAddItemGroup = !this.openAddItemGroup
+         this.$refs.move_add_box.style.transform = this.openAddItemGroup ? 'rotate(45deg)' : 'rotate(0deg)'
+         switch(from) {
+            case 'moveBtn':
+                this.openFrom = 'moveBtn'
+                break;
+            case 'editBtn':
+                if(data) {
+                    let currentIndex = data.index
+                    let currentList = data.list
+                    this.addNewItem = {
+                        name: currentList[currentIndex].name,
+                        balance: currentList[currentIndex].balance,
+                        index: currentIndex,
+                        list: currentList
+                    }
+                }
+                this.openFrom = 'editBtn'
+                break;
+            case 'cancel':
+                this.addNewItem = {
+                        name: '新增項目',
+                        balance: '新增金額',
+                        index: null,
+                        list: null
+                    }
+                this.openFrom = ''
+                break;
+            default:
+                break;
+         }
+     },
+     async checkAddListData() {
+         // 先驗證資料
+        let regNumber = /^(0|[1-9][0-9]*)$/
+       
+         if(regNumber.test(this.addNewItem.balance) && (parseInt(this.addNewItem.balance, 10) >= 0) && (this.addNewItem.name !== '')) {
+            //  this.$message({
+            //     message: '輸入正確',
+            //     center: true,
+            // })
+        switch(this.openFrom) {
+            case 'moveBtn':
+                await this.addItem()
+                break;
+            case 'editBtn':
+                await this.editItem()
+                break;
+            default:
+                break;
+         }
+
+         this.openFrom = ''
+
+         this.addNewItem = {
+            name: '新增項目',
+            balance: '新增金額',
+            index: null,
+            list: null
+        }
+
+        this.openAddItemGroup = false
+        this.$refs.move_add_box.style.transform = this.openAddItemGroup ? 'rotate(45deg)' : 'rotate(0deg)'
+             // 送出
+         } else {
+             this.$message({
+                message: '輸入錯誤',
+                center: true,
+            })
+         }
+     },
+     addItem() {
+         let addList = null
+
+         addList = this.currentDisplayIsTop ? this.profitList : this.expendituretList
+
+         if(addList) {
+             let realItem = {
+                 name: this.addNewItem.name,
+                 balance: this.addNewItem.balance,
+             }
+             addList.push(realItem)
+         }
+     },
+     editItem() {
+         let realItem = this.addNewItem
+         this.addNewItem.list[realItem.index] = {
+             name: realItem.name,
+             balance: realItem.balance
+         }
+     }
   },
   watch: {
       currentDisplayIsTop(current, old) {
@@ -317,7 +434,7 @@ $moveAddBtnSize: 50px
             display: flex
             flex-flow: row nowrap
             .control-box
-                // background-color: #202931
+                cursor: pointer
                 flex: 1 1 100px
                 display: flex
                 flex-flow: column nowrap
@@ -364,6 +481,8 @@ $moveAddBtnSize: 50px
                         align-items: center
                         color: $BGColor
                         font-size: $moveAddBtnSize / 2
+                        transform: rotate(0deg)
+                        transition: transform 0.5s
                 .income
                     flex: 1 1 80px
                     display: flex
@@ -439,9 +558,11 @@ $moveAddBtnSize: 50px
                                 margin: 0px 2px 2px 2px
                                 .el-input__inner
                                     height: 60px
-                                    font-size: 24px
+                                    font-size: 18px
                                     background-color: #1c2833
                                     color: #ffffff
+                                    font-weight: lighter
+                                    letter-spacing: 5px
                         .check-box
                             padding: 2px
                             .el-button+.el-button
