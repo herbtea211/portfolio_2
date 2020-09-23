@@ -25,10 +25,10 @@
                 .scroll-view
                     ul.profit-list
                         li(v-for="(item, index) in profitList" :key="index")
-                            i(class="el-icon-edit")
                             .profit-item-box
                                 span.item-name {{item.name}}
                                 span {{item.balance}}
+                            i(class="el-icon-edit")
                 //- .list-bottom-box
                 //-     .list-mask
                 //-     .list-item-edit-box
@@ -400,11 +400,16 @@ $moveAddBtnSize: 50px
                             display: flex
                             justify-content: space-between
                             .profit-item-box
-                                flex: 1 1 10px
+                                flex: 7 1 10px
                                 display: flex
                                 justify-content: space-between
                                 .item-name
-                                    margin-left: 50%
+                                    // margin-left: 50%
+                            i
+                                flex: 1 1 10px
+                                text-align: end
+                            &:hover
+                                color: #ffffff
                 .list-bottom-box
                     background-color: #ffa50036
                     position: absolute
@@ -491,7 +496,6 @@ $moveAddBtnSize: 50px
             .real-BK-layout
                 .content
                     flex-flow: column nowrap
-                    div
                     .control-box
                         flex: 1 1 $btn-BoxH-In-Por
                         .btn-box
@@ -508,6 +512,9 @@ $moveAddBtnSize: 50px
                                 right: 10px
                     .items-box
                         flex: 100 1 10px
+                        .scroll-view
+                            .profit-list
+                                padding-left: 20px
                 footer
                     flex-flow: column nowrap
                     flex: 0 1 100px
