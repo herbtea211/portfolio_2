@@ -29,21 +29,21 @@
                                 span.item-name {{item.name}}
                                 span {{item.balance}}
                             i(class="el-icon-edit")
-                //- .list-bottom-box
-                //-     .list-mask
-                //-     .list-item-edit-box
-                //-         .input-box
-                //-             el-input(
-                //-                 v-model="addNewItem.name"
-                //-                 placeholder=""
-                //-             )
-                //-             el-input(
-                //-                 v-model="addNewItem.balance"
-                //-                 placeholder=""
-                //-             )
-                //-         .check-box
-                //-             el-button.cancel 取消
-                //-             el-button.check 確定
+                .list-bottom-box
+                    .list-mask
+                    .list-item-edit-box
+                        .input-box
+                            el-input(
+                                v-model="addNewItem.name"
+                                placeholder=""
+                            )
+                            el-input(
+                                v-model="addNewItem.balance"
+                                placeholder=""
+                            )
+                        .check-box
+                            el-button.cancel 取消
+                            el-button.check 確定
         footer
             .text-box
                 span 銀行存款
@@ -376,6 +376,8 @@ $moveAddBtnSize: 50px
                         letter-spacing: 3px
                         color: $mainColor
                         font-weight: bold
+                    h4
+                        color: #ffffff
             .items-box
                 background-color: $mainBGColor
                 flex: 4 1 100px
@@ -423,23 +425,42 @@ $moveAddBtnSize: 50px
                         right: 0
                         left: 0
                         bottom: 0
-                        background-color: #000000cf
+                        background-color: $mainBGColor
+                        opacity: 0.85
                     .list-item-edit-box
                         position: absolute
                         right: 0
                         left: 0
                         bottom: 0
+                        margin: 2px
+                        .input-box
+                            display: flex
+                            .el-input
+                                margin: 0px 2px 2px 2px
+                                .el-input__inner
+                                    height: 60px
+                                    font-size: 24px
+                                    background-color: #1c2833
+                                    color: #ffffff
                         .check-box
+                            padding: 2px
                             .el-button+.el-button
                                 margin-left: 0px
                             .el-button
                                 background: $BGColor
                                 border: 1px solid $BGColor
                                 border-radius: 0px
+                                height: 70px
+                                // margin: 2px
+                                // box-sizing: border-box
+                                &:hover
+                                    color: #ffffff
                             .cancel
                                 width: 30%
                             .check
                                 width: 70%
+                                background-color: $mainColor
+                                color: $BGColor
         footer
             flex: 0 1 $footerH
             display: flex
