@@ -1,6 +1,6 @@
 <template lang="pug">
   #bookkeeping
-    h2 bookkeeping
+    h2 work-bookkeeping
     .real-BK-layout
         .content
             .control-box
@@ -83,6 +83,8 @@
                     @blur="verificationNumber(bankSavings)"
                     @focus="moveElement()"
                 )
+        .insole
+
 </template>
 
 <script>
@@ -352,6 +354,8 @@ $moveAddBtnSize: 50px
 #bookkeeping
     color: $textColor
     width: 100vw
+    >h2
+        padding-top: 10px
     .el-input
         height: 100%
         width: 100%
@@ -446,7 +450,7 @@ $moveAddBtnSize: 50px
                 flex: 4 1 100px
                 position: relative
                 .scroll-view
-                    overflow: scroll
+                    overflow-y: scroll
                     position: absolute
                     top: 0
                     right: 0
@@ -639,12 +643,12 @@ $moveAddBtnSize: 50px
                             .profit-list
                                 padding-left: 20px
                 footer
-                    flex-flow: column nowrap
                     flex: 0 1 100px
                     .text-box
-                        flex: 1 1 10px
                     .edit-box
                         flex: 1 1 10px
                         padding: unset
+                .insole
+                    height: 50px
 
 </style>
