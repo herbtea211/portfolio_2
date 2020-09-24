@@ -38,6 +38,11 @@ export default {
         title: 'UI是繁忙的城市,每個人都在自己的路上和別人相遇著',
         list: [
           {
+            name: '白癡記帳',
+            src: '7',
+            toPath: 'ui/bookkeeping'
+          },
+          {
             name: 'BUSINESS',
             src: '0',
             toPath: 'ui/busness'
@@ -71,11 +76,6 @@ export default {
             name: 'SHANG_QING',
             src: '6',
             toPath: 'ui/shang_qing_go'
-          },
-          {
-            name: 'BOOKKEEPING',
-            src: '7',
-            toPath: 'ui/bookkeeping'
           }
         ],
       },
