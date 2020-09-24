@@ -65,6 +65,10 @@
                             el-button.cancel(
                                 @click="openAddItem('cancel')"
                             ) 取消
+                            el-button.delete(
+                                v-show="displayDeleteBtn"
+                                @click="deleteItem()"
+                            ) 刪除
                             el-button.check(
                                 @click="checkAddListData()"
                             ) 確定
@@ -97,6 +101,11 @@ export default {
     },
     data () {
     return {
+        choseItem: {
+            index: null,
+            list: null
+        },
+        displayDeleteBtn: false,
         isOnMobile:false,
         openAddItemGroup: false,
         openFrom: '',
@@ -189,11 +198,17 @@ export default {
                 break;
             case 'editBtn':
                 if(data) {
+                    this.displayDeleteBtn = true
                     let currentIndex = data.index
                     let currentList = data.list
                     this.addNewItem = {
                         name: currentList[currentIndex].name,
                         balance: currentList[currentIndex].balance,
+                        index: currentIndex,
+                        list: currentList
+                    }
+
+                    this.choseItem = {
                         index: currentIndex,
                         list: currentList
                     }
@@ -280,6 +295,39 @@ export default {
              name: realItem.name,
              balance: parseInt(realItem.balance, 10)
          }
+     },
+     deleteItem() {
+
+        this.choseItem.list.forEach((item, index, array) => {
+            if(index === this.choseItem.index) {
+                array.splice(index,1)
+            }
+        })
+
+         this.choseItem = {
+            index: null,
+            list: null
+        }
+
+        this.addNewItem = {
+                name: '新增項目',
+                balance: '新增金額',
+                index: null,
+                list: null
+            }
+
+        this.displayDeleteBtn = false
+
+        this.openFrom = ''
+
+        this.openAddItemGroup = false
+        this.$refs.move_add_box.style.transform = this.openAddItemGroup ? 'rotate(45deg)' : 'rotate(0deg)'
+
+        if(this.isOnMobile) {
+            this.$refs.list_bottom_box.classList.remove('open-keyboard-on-mobile')
+        }
+
+        this.computedAllBalance()
      },
      computedAllBalance() {
 
@@ -513,6 +561,7 @@ $moveAddBtnSize: 50px
                                     letter-spacing: 5px
                         .check-box
                             padding: 2px
+                            display: flex
                             .el-button+.el-button
                                 margin-left: 0px
                             .el-button
@@ -520,14 +569,18 @@ $moveAddBtnSize: 50px
                                 border: 1px solid $BGColor
                                 border-radius: 0px
                                 height: 70px
+                                color: #b3b3b3
                                 // margin: 2px
                                 // box-sizing: border-box
                                 &:hover
                                     color: #ffffff
                             .cancel
-                                width: 30%
+                                flex: 1 1 20px
+                            .delete
+                                flex: 1 1 20px
+                                background-color: #212c3a
                             .check
-                                width: 70%
+                                flex: 2 1 50px
                                 background-color: $mainColor
                                 color: $BGColor
                 .list-bottom-box.open-keyboard-on-mobile
