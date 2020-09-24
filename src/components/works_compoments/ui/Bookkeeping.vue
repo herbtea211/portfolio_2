@@ -48,7 +48,10 @@
                                 @click="openAddItem('editBtn', {list: expendituretList, index: index})"
                                 class="el-icon-edit"
                                 )
-                .list-bottom-box(v-if="openAddItemGroup")
+                .list-bottom-box(
+                    v-show="openAddItemGroup"
+                    ref="list_bottom_box"
+                    )
                     .list-mask
                     .list-item-edit-box
                         .input-box
@@ -65,7 +68,10 @@
                             el-button.check(
                                 @click="checkAddListData()"
                             ) 確定
-        footer
+        footer(
+            ref="footer"
+        )
+            .footerMask
             .text-box
                 span 銀行存款
             .edit-box(
@@ -75,6 +81,7 @@
                     ref="bankSavingsInput"
                     v-model="bankSavings"
                     @blur="verificationNumber(bankSavings)"
+                    @focus="moveElement()"
                 )
 </template>
 
@@ -149,6 +156,9 @@ export default {
 
         if(reg.test(inputCon)) {
             this.$refs.bankSavingsInput.blur()
+            if(this.isOnMobile) {
+                this.$refs.footer.classList.remove('open-keyboard-on-mobile')
+            }
         } else {
             this.$message({
                 message: '存款金額錯誤',
@@ -166,6 +176,11 @@ export default {
      openAddItem(from, data) {
          this.openAddItemGroup = !this.openAddItemGroup
          this.$refs.move_add_box.style.transform = this.openAddItemGroup ? 'rotate(45deg)' : 'rotate(0deg)'
+
+        if(this.isOnMobile) {
+            this.$refs.list_bottom_box.classList.add('open-keyboard-on-mobile')
+        }
+
          switch(from) {
             case 'moveBtn':
                 this.openFrom = 'moveBtn'
@@ -191,6 +206,9 @@ export default {
                         list: null
                     }
                 this.openFrom = ''
+                if(this.isOnMobile) {
+                    this.$refs.list_bottom_box.classList.remove('open-keyboard-on-mobile')
+                }
                 break;
             default:
                 break;
@@ -228,6 +246,10 @@ export default {
         this.openAddItemGroup = false
         this.$refs.move_add_box.style.transform = this.openAddItemGroup ? 'rotate(45deg)' : 'rotate(0deg)'
 
+        if(this.isOnMobile) {
+            this.$refs.list_bottom_box.classList.remove('open-keyboard-on-mobile')
+        }
+
         this.computedAllBalance()
              // 送出
          } else {
@@ -254,7 +276,7 @@ export default {
          let realItem = this.addNewItem
          this.addNewItem.list[realItem.index] = {
              name: realItem.name,
-             balance: realItem.balance
+             balance: parseInt(realItem.balance, 10)
          }
      },
      computedAllBalance() {
@@ -287,8 +309,12 @@ export default {
         catch(e){
             return false
         }
-
+    },
+    moveElement() {
+        if(this.isOnMobile) {
+            this.$refs.footer.classList.add('open-keyboard-on-mobile')
         }
+    }
   },
   watch: {
       currentDisplayIsTop(current, old) {
@@ -500,14 +526,35 @@ $moveAddBtnSize: 50px
                                 width: 70%
                                 background-color: $mainColor
                                 color: $BGColor
+                .list-bottom-box.open-keyboard-on-mobile
+                    position: fixed
+                    top: 100px
+                    right: 0
+                    left: 0
+                    z-index: 100000
+                    .list-mask
+                        position: fixed
+                        top: 0
+                        right: 0
+                        left: 0
+                        bottom: 0
+                        background-color: #000000
+                        opacity: 0.85
+                    .list-item-edit-box
+                        position: fixed
+                        top: 100px
+                        right: 0
+                        left: 0
         footer
             flex: 0 1 $footerH
             display: flex
             font-size: 20px
+            .footerMask
             .text-box
                 display: flex
                 align-items: center
                 flex: 0 1 100px
+                background-color: $BGColor
                 span
                     margin-left: 10px
             .edit-box
@@ -518,6 +565,22 @@ $moveAddBtnSize: 50px
                 padding: 0px 20px
                 .el-input__inner
                     color: $mainColor
+        footer.open-keyboard-on-mobile
+            position: fixed
+            top: 100px
+            left: 0
+            right: 0
+            z-index: 10001
+            .footerMask
+                position: fixed
+                top: 0
+                right: 0
+                left: 0
+                bottom: 0
+                background-color: #000000
+                opacity: 0.9
+            .text-box
+                z-index: 1002
 
 @media screen and (max-width: 1400px)
     #bookkeeping
