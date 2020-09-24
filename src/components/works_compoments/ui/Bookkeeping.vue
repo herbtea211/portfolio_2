@@ -224,6 +224,8 @@ export default {
 
         this.openAddItemGroup = false
         this.$refs.move_add_box.style.transform = this.openAddItemGroup ? 'rotate(45deg)' : 'rotate(0deg)'
+
+        this.computedAllBalance()
              // 送出
          } else {
              this.$message({
@@ -240,7 +242,7 @@ export default {
          if(addList) {
              let realItem = {
                  name: this.addNewItem.name,
-                 balance: this.addNewItem.balance,
+                 balance: parseInt(this.addNewItem.balance, 10)
              }
              addList.push(realItem)
          }
@@ -254,8 +256,6 @@ export default {
      },
      computedAllBalance() {
 
-
-
          let allProfit = this.profitList.reduce((acc, currentValue) => {
              return acc + currentValue.balance
          }, 0)
@@ -266,48 +266,13 @@ export default {
 
          this.controlBoxConfig.btnConfig.forEach((item) => {
              if(item.key === 'top') {
-                 item.balance = allProfit
+                 item.balance = parseInt(allProfit, 10)
              } else if (item.key === 'bottom') {
-                 item.balance = allexpendituret
+                 item.balance = parseInt(allexpendituret, 10)
              }
          })
 
          this.controlBoxConfig.incomeConfig.balance = allProfit - allexpendituret
-
-
-
-         console.log('allProfit', allexpendituret)
-
-        // controlBoxConfig:{
-        //     incomeConfig: {
-        //         title: '可用餘額',
-        //         balance: 0
-        //     },
-        //     btnConfig: [
-        //         {
-        //             key: 'top',
-        //             title: '收入',
-        //             balance: 1200
-        //         },
-        //         {
-        //             key: 'bottom',
-        //             title: '支出',
-        //             balance: 2100
-        //         }
-        //     ]
-        // },
-        // profitList: [
-        //     {
-        //         name: '薪資',
-        //         balance: 35000
-        //     }
-        // ],
-        // expendituretList: [
-        //     {
-        //         name: '房租',
-        //         balance: 8000
-        //     }
-        // ]
 
      }
   },
