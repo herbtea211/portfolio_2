@@ -88,6 +88,7 @@ export default {
     },
     data () {
     return {
+        isOnMobile:false,
         openAddItemGroup: false,
         openFrom: '',
         currentDisplayIsTop: false,
@@ -137,7 +138,9 @@ export default {
     this.currentDisplayIsTop = true
 
     this.computedAllBalance()
-    
+
+    this.isOnMobile = this.isMobile()
+
 },
   methods: {
       verificationNumber(inputCon) {
@@ -274,7 +277,18 @@ export default {
 
          this.controlBoxConfig.incomeConfig.balance = allProfit - allexpendituret
 
-     }
+     },
+     isMobile() {
+
+        try{
+            document.createEvent("TouchEvent")
+            return true
+        }
+        catch(e){
+            return false
+        }
+
+        }
   },
   watch: {
       currentDisplayIsTop(current, old) {
