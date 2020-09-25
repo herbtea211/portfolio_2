@@ -88,6 +88,19 @@
                     @focus="moveElement()"
                 )
         .insole
+    .description-box(
+        v-if="displayDescription"
+    )
+        h4 這個應用軟體是給存不到錢的<b>理財白痴使用的!!</b><br>最適合只有一份收入,永遠<b>不知道錢花去哪的人</b>使用<br>沒有複雜的功能,分期付款功能,一堆預設標籤,也沒有惱人的會計概念,只要確實的輸入“收入”與“支出”的項目,就可以好好檢視“為何你存不到錢?!?!”<br>針對自己的問題作改善,漸漸的就可以養成儲蓄的習慣<br>使用原則:<b>只要是從口袋裡拿出去的！！都是支出！！</b><br>使用建議:
+        ul
+            li 第一個月 > 確實記錄每筆支出與收入
+            li 第二個月 > 規劃每個月的存款,並計為"支出"(只要是從口袋裡拿出去的！！都是支出！！
+            li 第三個月 > 詳細規劃每個月的支出分配
+            li 第四個月 > 感受儲蓄的重要！！！
+        .btn-box
+            el-button(
+                @click="displayDescription = false"
+            ) 開始試用
 
 </template>
 
@@ -101,6 +114,7 @@ export default {
     },
     data () {
     return {
+        displayDescription: true,
         choseItem: {
             index: null,
             list: null
@@ -364,6 +378,9 @@ export default {
         if(this.isOnMobile) {
             this.$refs.footer.classList.add('open-keyboard-on-mobile')
         }
+    },
+    start() {
+        this.displayDescription = false
     }
   },
   watch: {
@@ -402,6 +419,14 @@ $moveAddBtnSize: 50px
 #bookkeeping
     color: $textColor
     width: 100vw
+    .el-button
+        background: $BGColor
+        border: 1px solid $BGColor
+        border-radius: 0px
+        height: 70px
+        color: #b3b3b3
+        &:hover
+            color: #ffffff
     >h2
         padding-top: 10px
     .el-input
@@ -638,6 +663,32 @@ $moveAddBtnSize: 50px
                 opacity: 0.9
             .text-box
                 z-index: 1002
+    .description-box
+        position: fixed
+        top: 0
+        right: 0
+        left: 0
+        bottom: 0
+        background-color: #000000
+        z-index: 10000
+        padding: 20px 50px
+        letter-spacing: 3px
+        h4
+            margin: 50px auto 10px
+            height: unset
+            b
+                color: $mainColor
+        ul
+            list-style: none
+            padding-left: 0px
+            li
+                margin-bottom: 5px
+        .btn-box
+            width: 50%
+            margin: 50px auto 0px
+            .el-button
+                width: 100%
+
 
 @media screen and (max-width: 1400px)
     #bookkeeping
