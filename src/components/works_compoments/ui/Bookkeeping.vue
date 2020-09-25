@@ -393,7 +393,7 @@ export default {
       currentDisplayIsTop(current, old) {
             let btnH = this.$refs.btn_box.children[0].offsetHeight
             let moveBtnH = this.$refs.move_add_box.offsetHeight
-            console.log('btnH', btnH)
+            
           if(current) {
               this.$refs.move_add_box.style.top = `${(btnH - moveBtnH) / 2}px`
           } else {
