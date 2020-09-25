@@ -256,10 +256,7 @@ export default {
         let regNumber = /^(0|[1-9][0-9]*)$/
        
          if(regNumber.test(this.addNewItem.balance) && (parseInt(this.addNewItem.balance, 10) >= 0) && (this.addNewItem.name !== '')) {
-            //  this.$message({
-            //     message: '輸入正確',
-            //     center: true,
-            // })
+           
         switch(this.openFrom) {
             case 'moveBtn':
                 await this.addItem()
@@ -393,7 +390,7 @@ export default {
       currentDisplayIsTop(current, old) {
             let btnH = this.$refs.btn_box.children[0].offsetHeight
             let moveBtnH = this.$refs.move_add_box.offsetHeight
-            
+
           if(current) {
               this.$refs.move_add_box.style.top = `${(btnH - moveBtnH) / 2}px`
           } else {
@@ -435,7 +432,7 @@ $moveAddBtnSize: 50px
         &:hover
             color: #ffffff
     >h2
-        padding-top: 10px
+        // padding-top: 10px
     .el-input
         height: 100%
         width: 100%
@@ -530,7 +527,7 @@ $moveAddBtnSize: 50px
                 flex: 4 1 100px
                 position: relative
                 .scroll-view
-                    overflow-y: scroll
+                    overflow-y: auto
                     position: absolute
                     top: 0
                     right: 0
@@ -680,7 +677,7 @@ $moveAddBtnSize: 50px
         z-index: 10000
         padding: 50px 55px
         letter-spacing: 3px
-        overflow-y: scroll
+        overflow-y: auto
         h4
             margin: 10px auto 10px
             height: unset
