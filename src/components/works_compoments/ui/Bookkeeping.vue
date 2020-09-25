@@ -173,6 +173,12 @@ export default {
 
     this.isOnMobile = this.isMobile()
 
+    window.onresize = () => {
+        this.currentDisplayIsTop = false
+        setTimeout(() => {
+            this.currentDisplayIsTop = true
+        }, 10)
+    }
 },
   methods: {
       verificationNumber(inputCon) {
@@ -387,6 +393,7 @@ export default {
       currentDisplayIsTop(current, old) {
             let btnH = this.$refs.btn_box.children[0].offsetHeight
             let moveBtnH = this.$refs.move_add_box.offsetHeight
+            console.log('btnH', btnH)
           if(current) {
               this.$refs.move_add_box.style.top = `${(btnH - moveBtnH) / 2}px`
           } else {
@@ -671,10 +678,11 @@ $moveAddBtnSize: 50px
         bottom: 0
         background-color: #000000
         z-index: 10000
-        padding: 20px 50px
+        padding: 50px 55px
         letter-spacing: 3px
+        overflow-y: scroll
         h4
-            margin: 50px auto 10px
+            margin: 10px auto 10px
             height: unset
             b
                 color: $mainColor
@@ -754,5 +762,9 @@ $moveAddBtnSize: 50px
                         padding: unset
                 .insole
                     height: 50px
+            .description-box
+                .btn-box
+                    width: 50%
+                    margin: 20px auto 0px
 
 </style>
