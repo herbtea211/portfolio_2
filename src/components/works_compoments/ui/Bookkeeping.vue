@@ -57,9 +57,11 @@
                         .input-box
                             el-input(
                                 v-model="addNewItem.name"
+                                placeholder="新增項目"
                             )
                             el-input(
                                 v-model="addNewItem.balance"
+                                placeholder="新增金額"
                             )
                         .check-box
                             el-button.cancel(
@@ -125,8 +127,8 @@ export default {
         openFrom: '',
         currentDisplayIsTop: false,
         addNewItem: {
-            name: '新增項目',
-            balance: '新增金額',
+            name: '',
+            balance: '',
             index: null,
             list: null
         },
@@ -237,8 +239,8 @@ export default {
                 break;
             case 'cancel':
                 this.addNewItem = {
-                        name: '新增項目',
-                        balance: '新增金額',
+                        name: '',
+                        balance: '',
                         index: null,
                         list: null
                     }
@@ -271,8 +273,8 @@ export default {
          this.openFrom = ''
 
          this.addNewItem = {
-            name: '新增項目',
-            balance: '新增金額',
+            name: '',
+            balance: '',
             index: null,
             list: null
         }
@@ -327,8 +329,8 @@ export default {
         }
 
         this.addNewItem = {
-                name: '新增項目',
-                balance: '新增金額',
+                name: '',
+                balance: '',
                 index: null,
                 list: null
             }
