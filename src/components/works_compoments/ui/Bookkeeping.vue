@@ -87,7 +87,7 @@
                     @blur="verificationNumber(bankSavings)"
                     @focus="moveElement()"
                 )
-        .insole
+        //- .insole
     .description-box(
         v-if="displayDescription"
     )
@@ -417,7 +417,7 @@ $moveAddBtnSize: 50px
 @import '../../../assets/styles/var'
 
 #works
-    .workCon
+    #bookkeeping
         background-color: $BGColor
 
 #bookkeeping
@@ -757,8 +757,8 @@ $moveAddBtnSize: 50px
                     .edit-box
                         flex: 1 1 10px
                         padding: unset
-                .insole
-                    height: 50px
+                // .insole
+                //     height: 50px
             .description-box
                 .btn-box
                     width: 50%
